@@ -11,27 +11,35 @@ type CollapsibleEntry = {
   image: string;
 };
 
-export default function DigitalPage() {
+export default function StrategyPage() {
   const contentMap = [
     {
-      title: 'Engineered Design-Craft',
-      subtitle: 'Your business is unique, and your software should be too. Our Custom Development services are designed to build tailor-made technology solutions that fit your specific needs, streamline your operations, and give you a powerful competitive advantage.',
-      description: 'We go beyond off-the-shelf solutions. Our team of experienced developers and engineers works closely with you to understand your challenges and build scalable, secure, and high-performance applications that are designed to grow with your business.',
+      title: 'Brand With Purpose',
+      subtitle:
+        'Your brand is more than just a logo—it\'s the story, feeling, and promise you make to every customer. In a digital-first world, a strong brand is the most powerful asset you can have. It\'s what makes you stand out, builds trust, and fosters loyalty.',
+      description:
+        'We help you define, develop, and launch a brand that truly resonates. Our approach combines creative vision with data-driven strategy to build a cohesive identity that tells your story and connects with your audience across all platforms.',
     },
     {
-      title: 'Connect Everything, Everywhere',
-      subtitle: 'In today\'s interconnected world, your business systems need to communicate seamlessly. Our Service Bus Integrations services create a robust and reliable backbone for your technology, ensuring that data flows effortlessly between your applications, platforms, and services.',
-      description: 'We specialize in building the critical connections that eliminate silos and automate your workflows. By implementing a service bus, we create a centralized communication channel that not only improves efficiency but also makes your entire tech ecosystem more scalable and resilient.',
+      title: 'Modernize. Optimize. Scale.',
+      subtitle:
+        'Digital transformation isn\'t just about adopting new technology; it\'s about reimagining your business for the digital age. It\'s a fundamental shift in how you operate, deliver value, and connect with customers. We help you navigate this complex journey, turning legacy systems into competitive advantages and new technologies into growth engines.',
+      description:
+        'Our approach combines strategic vision with hands-on expertise. We work with you to identify key areas for improvement, implement cutting-edge solutions, and empower your team to thrive in a constantly evolving digital landscape.',
     },
     {
-      title: 'Commerce That Converts',
-      subtitle: 'In a digital-first economy, a powerful e-commerce platform is the engine of your business. It\'s more than just an online store; it\'s a strategic tool designed to attract customers, drive sales, and build brand loyalty. Our E-Commerce services are focused on creating seamless, scalable, and secure online shopping experiences that turn browsers into buyers.',
-      description: 'We combine a deep understanding of consumer behavior with cutting-edge technology to build platforms that are not only visually compelling but also optimized for performance and conversion. From a single product shop to a complex marketplace, we build the digital storefront you need to grow your business.',
+      title: 'New Markets. Zero Guesswork',
+      subtitle:
+        'Expanding into new markets is a bold move that requires a clear strategy. We help you navigate the complexities of new territories, ensuring your entry is not only successful but also sustainable. Our approach combines deep market intelligence with a tech-driven focus on consumer behavior, giving you a comprehensive roadmap for growth.',
+      description:
+        'We don\'t just help you enter new markets; we help you own them. From initial research to launch and beyond, we provide the insights and strategic support to help you connect with new audiences and build a strong presence.',
     },
     {
-      title: 'Leave Them Kids Alone…',
-      subtitle: 'The way we learn is changing, and so is the technology that powers it. Our E-Learning services are focused on creating engaging, intuitive, and scalable learning platforms that deliver knowledge effectively and efficiently. We help businesses, organizations, and educational institutions build custom solutions that turn a static curriculum into a dynamic learning experience.',
-      description: 'We combine instructional design principles with cutting-edge technology to build platforms that are not only easy to use but also optimized for retention and engagement. From corporate training modules to full-fledged educational platforms, we build the tools you need to educate and empower your audience.',
+      title: 'Create Cults Not Clients',
+      subtitle:
+        'In a world where attention is the most valuable currency, a powerful social media presence is non-negotiable. Our Social Strategy services go beyond content calendars and vanity metrics. We help you build a cohesive, data-driven plan that turns social media into a powerful engine for brand building, community engagement, and business growth.',
+      description:
+        'We combine an understanding of social media culture with the technology to listen, analyze, and engage authentically. This ensures every post, campaign, and interaction serves a strategic purpose, helping you connect with your audience on a deeper level.',
     },
   ];
 
@@ -40,17 +48,17 @@ export default function DigitalPage() {
   const [openMobileMenu, setOpenMobileMenu] = useState<number | null>(0); // First menu open by default
 
   const buttons = [
-    { id: 0, label: 'CUSTOM DEVELOPMENT' },
-    { id: 1, label: 'SERVICE BUS INTEGRATIONS' },
-    { id: 2, label: 'E-COMMERCE' },
-    { id: 3, label: 'E-LEARNING' },
+    { id: 0, label: 'BRANDING' },
+    { id: 1, label: 'DIGITAL TRANSFORMATION' },
+    { id: 2, label: 'MARKET EXPANSION' },
+    { id: 3, label: 'SOCIAL' },
   ];
 
   const rightColumnTitles = [
-    'Our Custom Development Services',
-    'Our Service Bus Integration Services',
-    'Our E-Commerce Services',
-    'Our E-Learning Services',
+    'Our Branding Services',
+    'Our Digital Transformation Services',
+    'Our Market Expansion Services',
+    'Our Social Strategy Services',
   ];
 
   const handleItemToggle = (index: number) => {
@@ -71,95 +79,106 @@ export default function DigitalPage() {
   const collapsibleContent: Record<number, CollapsibleEntry[]> = {
     0: [
       {
-        title: 'Web Application Development',
-        description: 'We build robust and interactive web applications, from customer portals to complex enterprise systems, designed for speed and usability.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'Brand Strategy',
+        description:
+          'We define your brand\'s purpose, values, and voice to create a solid foundation for your identity.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile App Development',
-        description: 'We create native and cross-platform mobile apps for iOS and Android that deliver seamless user experiences and drive engagement.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        title: 'Visual Identity',
+        description:
+          'We design a memorable visual system, including logos, color palettes, and typography, that reflects your brand\'s personality.',
+        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API & System Integration',
-        description: 'We connect your disparate systems and third-party tools, creating a unified and efficient technology ecosystem.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Brand Messaging',
+        description:
+          'We craft a clear and compelling brand story and messaging framework that speaks directly to your target audience.',
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'SaaS Product Development',
-        description: 'We partner with businesses to build and launch scalable, market-ready SaaS products from concept to execution.',
+        title: 'Digital Brand Guidelines',
+        description:
+          'We create comprehensive guidelines to ensure your brand remains consistent and strong across every touchpoint, from your website to social media.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
     ],
     1: [
       {
-        title: 'System & Application Integration',
-        description: 'We connect your CRM, ERP, marketing platforms, and custom applications to ensure they work together as one unified system.',
+        title: 'Technology & Infrastructure Modernization',
+        description:
+          'We help you move to the cloud, integrate new platforms, and modernize your tech stack to be more agile, scalable, and secure.',
         image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API Management',
-        description: 'We design and implement APIs that allow your different services to communicate securely and efficiently, both internally and with external partners.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Customer Experience (CX) Transformation',
+        description:
+          'We redesign your customer journey with a digital-first mindset, creating seamless, personalized, and engaging experiences across all touchpoints.',
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Data Orchestration',
-        description: 'We build a structured process for data to move between systems, ensuring accuracy, consistency, and timely delivery.',
+        title: 'Operational Optimization',
+        description:
+          'We streamline your internal processes through automation and integrated systems, boosting efficiency and freeing up your team to focus on innovation.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Legacy System Modernization',
-        description: 'We integrate your older systems with modern cloud services and applications, extending their lifespan and improving their functionality.',
-        image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80',
+        title: 'Data & Analytics Integration',
+        description:
+          'We build a cohesive data strategy that connects different parts of your business, giving you a unified view of your operations and customers.',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       },
     ],
     2: [
       {
-        title: 'Custom E-Commerce Development',
-        description: 'We build bespoke online stores tailored to your unique business model, providing a flexible and powerful solution.',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+        title: 'Market Opportunity Analysis',
+        description:
+          'We conduct in-depth research to identify and evaluate the most promising new markets for your business.',
+        image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Platform Integration',
-        description: 'We seamlessly integrate your store with your existing systems, including CRM, inventory management, and marketing automation tools.',
-        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'User Experience (UX) Design',
-        description: 'We design intuitive and engaging shopping journeys that simplify the path from product discovery to checkout.',
+        title: 'Target Audience Profiling',
+        description:
+          'We create detailed profiles of potential customers in new markets, including their needs, preferences, and digital behaviors.',
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Payment & Security Solutions',
-        description: 'We implement secure payment gateways and robust security measures to protect your business and your customers.',
-        image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80',
+        title: 'Competitive Landscape Mapping',
+        description:
+          'We analyze the existing competition to help you identify your unique value proposition and position yourself for success.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Localized Go-to-Market Strategy',
+        description:
+          'We craft a tailored strategy that covers everything from product and pricing to messaging and technology, ensuring you resonate with local audiences.',
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
     ],
     3: [
       {
-        title: 'Custom Learning Management Systems (LMS)',
-        description: 'We build bespoke platforms tailored to your specific training needs, providing a flexible and powerful solution for managing and delivering content.',
+        title: 'Audience & Platform Analysis',
+        description:
+          'We identify where your target audience is most active and how they engage, ensuring you focus your efforts on the right platforms.',
+        image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Content & Campaign Planning',
+        description:
+          'We develop a strategic content plan that aligns with your business goals and resonates with your community, from viral campaigns to evergreen content.',
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Social Listening & Insights',
+        description:
+          'We use technology to monitor online conversations, track brand sentiment, and uncover trends that inform your strategy in real-time.',
+        image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Community Building',
+        description:
+          'We help you foster a strong, engaged community around your brand, turning followers into loyal advocates.',
         image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Interactive Course Development',
-        description: 'We transform traditional learning materials into engaging, interactive courses with rich media, quizzes, and gamified elements.',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Mobile Learning Solutions',
-        description: 'We design and develop mobile-first learning apps that allow your users to learn anytime, anywhere, on any device.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Integration with Existing Systems',
-        description: 'We integrate your e-learning platform with your current systems, such as HR tools and CRMs, to streamline user data and reporting.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Immersive Learning',
-        description: 'We combine instructional design principles with technologies like virtual reality (VR) and augmented reality (AR) to build scenarios that are both compelling and educational.',
-        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
       },
     ],
   } as const;
@@ -168,7 +187,7 @@ export default function DigitalPage() {
   const currentContent = contentMap[activeButton];
 
   return (
-    <div 
+    <div
       className="snap-container min-h-screen md:h-screen overflow-y-auto relative md:[scroll-snap-type:y_mandatory]"
       style={{
         scrollBehavior: 'smooth',
@@ -269,7 +288,7 @@ export default function DigitalPage() {
                       }}
                     >
                       <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light text-right">
-                        {rightColumnTitles[activeButton] ?? 'Digital Services'}
+                        {rightColumnTitles[activeButton] ?? 'Strategy Services'}
                       </h2>
                     </motion.div>
                     {activeCollapsibleItems.map((item, index) => (
@@ -288,7 +307,7 @@ export default function DigitalPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Service Buttons - Affixed to bottom of first section */}
           <div className="w-full mt-auto">
             <div className="flex flex-col md:flex-row">
@@ -426,3 +445,4 @@ export default function DigitalPage() {
     </div>
   );
 }
+

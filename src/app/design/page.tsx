@@ -11,27 +11,35 @@ type CollapsibleEntry = {
   image: string;
 };
 
-export default function DigitalPage() {
+export default function DesignPage() {
   const contentMap = [
     {
-      title: 'Engineered Design-Craft',
-      subtitle: 'Your business is unique, and your software should be too. Our Custom Development services are designed to build tailor-made technology solutions that fit your specific needs, streamline your operations, and give you a powerful competitive advantage.',
-      description: 'We go beyond off-the-shelf solutions. Our team of experienced developers and engineers works closely with you to understand your challenges and build scalable, secure, and high-performance applications that are designed to grow with your business.',
+      title: 'We Are Addicted To Simplicity',
+      subtitle:
+        'In the digital world, User Experience (UX) is what separates a good product from a great one. It\'s the feeling someone gets when they interact with your website, app, or software. Our UX services are designed to ensure that every touchpoint is intuitive, efficient, and enjoyable, turning casual users into loyal customers.',
+      description:
+        'We believe that great UX is a blend of psychology, technology, and design. Our team uses a human-centered approach to create experiences that not only meet user needs but also exceed their expectations, driving engagement and conversions for your business.',
     },
     {
-      title: 'Connect Everything, Everywhere',
-      subtitle: 'In today\'s interconnected world, your business systems need to communicate seamlessly. Our Service Bus Integrations services create a robust and reliable backbone for your technology, ensuring that data flows effortlessly between your applications, platforms, and services.',
-      description: 'We specialize in building the critical connections that eliminate silos and automate your workflows. By implementing a service bus, we create a centralized communication channel that not only improves efficiency but also makes your entire tech ecosystem more scalable and resilient.',
+      title: 'Where Beauty Meets Form',
+      subtitle:
+        'In today\'s digital landscape, your website and mobile presence are often the first points of contact with your customers. Our Mobile & Web Design services are focused on creating beautiful, high-performing digital platforms that not only capture attention but also drive results.',
+      description:
+        'We blend modern aesthetics with user-centric functionality. By leveraging the latest design trends and technology, we build experiences that are seamless across all devices, ensuring your brand makes a powerful impression, whether on a desktop or a smartphone.',
     },
     {
-      title: 'Commerce That Converts',
-      subtitle: 'In a digital-first economy, a powerful e-commerce platform is the engine of your business. It\'s more than just an online store; it\'s a strategic tool designed to attract customers, drive sales, and build brand loyalty. Our E-Commerce services are focused on creating seamless, scalable, and secure online shopping experiences that turn browsers into buyers.',
-      description: 'We combine a deep understanding of consumer behavior with cutting-edge technology to build platforms that are not only visually compelling but also optimized for performance and conversion. From a single product shop to a complex marketplace, we build the digital storefront you need to grow your business.',
+      title: 'A Picture Worth A Thousand Words',
+      subtitle:
+        'Visual Design is the face of your brand. It\'s how your business communicates its personality, values, and quality at a glance. We create stunning and strategic visual identities that not only look great but also build trust, convey professionalism, and capture your audience\'s attention.',
+      description:
+        'We combine artistic creativity with a deep understanding of user psychology and digital technology. Our goal is to craft a visual language that is not only beautiful but also functional, consistent, and memorable across every digital and physical touchpoint.',
     },
     {
-      title: 'Leave Them Kids Alone…',
-      subtitle: 'The way we learn is changing, and so is the technology that powers it. Our E-Learning services are focused on creating engaging, intuitive, and scalable learning platforms that deliver knowledge effectively and efficiently. We help businesses, organizations, and educational institutions build custom solutions that turn a static curriculum into a dynamic learning experience.',
-      description: 'We combine instructional design principles with cutting-edge technology to build platforms that are not only easy to use but also optimized for retention and engagement. From corporate training modules to full-fledged educational platforms, we build the tools you need to educate and empower your audience.',
+      title: 'It\'s Alive!',
+      subtitle:
+        'Bringing an idea to life requires more than just a concept—it requires a tangible form. Our Prototyping services help you visualize and test your digital products before any code is written, saving you time, money, and costly mistakes.',
+      description:
+        'We believe in the power of "show, don\'t tell." By creating interactive prototypes, we allow you to experience the user journey firsthand, gather critical feedback, and iterate quickly. This agile approach ensures your final product is not only beautiful but also intuitive, functional, and fully aligned with user needs.',
     },
   ];
 
@@ -40,17 +48,17 @@ export default function DigitalPage() {
   const [openMobileMenu, setOpenMobileMenu] = useState<number | null>(0); // First menu open by default
 
   const buttons = [
-    { id: 0, label: 'CUSTOM DEVELOPMENT' },
-    { id: 1, label: 'SERVICE BUS INTEGRATIONS' },
-    { id: 2, label: 'E-COMMERCE' },
-    { id: 3, label: 'E-LEARNING' },
+    { id: 0, label: 'USER EXPERIENCE' },
+    { id: 1, label: 'MOBILE & WEB DESIGN' },
+    { id: 2, label: 'VISUAL DESIGN' },
+    { id: 3, label: 'PROTOTYPING' },
   ];
 
   const rightColumnTitles = [
-    'Our Custom Development Services',
-    'Our Service Bus Integration Services',
-    'Our E-Commerce Services',
-    'Our E-Learning Services',
+    'Our User Experience Services',
+    'Our Mobile & Web Design Services',
+    'Our Visual Design Services',
+    'Our Prototyping Services',
   ];
 
   const handleItemToggle = (index: number) => {
@@ -71,95 +79,106 @@ export default function DigitalPage() {
   const collapsibleContent: Record<number, CollapsibleEntry[]> = {
     0: [
       {
-        title: 'Web Application Development',
-        description: 'We build robust and interactive web applications, from customer portals to complex enterprise systems, designed for speed and usability.',
+        title: 'UX Audit & Strategy',
+        description:
+          'We evaluate your current digital platforms to identify pain points and opportunities for improvement, creating a strategic roadmap for a better user experience.',
         image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile App Development',
-        description: 'We create native and cross-platform mobile apps for iOS and Android that deliver seamless user experiences and drive engagement.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'API & System Integration',
-        description: 'We connect your disparate systems and third-party tools, creating a unified and efficient technology ecosystem.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'SaaS Product Development',
-        description: 'We partner with businesses to build and launch scalable, market-ready SaaS products from concept to execution.',
+        title: 'Information Architecture',
+        description:
+          'We organize and structure your content in a way that is logical and easy for users to navigate, ensuring they can always find what they\'re looking for.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Wireframing & Prototyping',
+        description:
+          'We create a blueprint for your digital product, allowing you to test and refine the user journey before any code is written.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Usability Testing',
+        description:
+          'We observe how real users interact with your product to uncover usability issues and validate design decisions.',
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
     ],
     1: [
       {
-        title: 'System & Application Integration',
-        description: 'We connect your CRM, ERP, marketing platforms, and custom applications to ensure they work together as one unified system.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'Custom Website Design',
+        description:
+          'We build custom websites from the ground up that are visually stunning, easy to navigate, and optimized for performance and conversions.',
+        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API Management',
-        description: 'We design and implement APIs that allow your different services to communicate securely and efficiently, both internally and with external partners.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Mobile App UI/UX',
+        description:
+          'We design intuitive and engaging user interfaces for mobile applications, ensuring a smooth and enjoyable experience for your users.',
+        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Data Orchestration',
-        description: 'We build a structured process for data to move between systems, ensuring accuracy, consistency, and timely delivery.',
+        title: 'Responsive Design',
+        description:
+          'We guarantee your website looks and works flawlessly on any device, from laptops and tablets to smartphones.',
         image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Legacy System Modernization',
-        description: 'We integrate your older systems with modern cloud services and applications, extending their lifespan and improving their functionality.',
-        image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80',
+        title: 'Website Redesign',
+        description:
+          'We revitalize existing websites with modern design principles and updated technology to improve functionality, aesthetics, and overall performance.',
+        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
       },
     ],
     2: [
       {
-        title: 'Custom E-Commerce Development',
-        description: 'We build bespoke online stores tailored to your unique business model, providing a flexible and powerful solution.',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+        title: 'Brand Identity & Style Guides',
+        description:
+          'We develop a comprehensive visual identity, including logo design, color palettes, typography, and imagery, with a detailed style guide to ensure consistency.',
+        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Platform Integration',
-        description: 'We seamlessly integrate your store with your existing systems, including CRM, inventory management, and marketing automation tools.',
+        title: 'UI (User Interface) Design',
+        description:
+          'We design intuitive and visually appealing interfaces for websites, mobile apps, and software, making every interaction feel polished and effortless.',
         image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'User Experience (UX) Design',
-        description: 'We design intuitive and engaging shopping journeys that simplify the path from product discovery to checkout.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Illustration & Iconography',
+        description:
+          'We create custom illustrations and icons that add personality to your brand and help simplify complex information for users.',
+        image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Payment & Security Solutions',
-        description: 'We implement secure payment gateways and robust security measures to protect your business and your customers.',
-        image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80',
+        title: 'Marketing Collateral',
+        description:
+          'We design high-impact visuals for your marketing campaigns, including social media graphics, ads, presentations, and digital reports.',
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
     ],
     3: [
       {
-        title: 'Custom Learning Management Systems (LMS)',
-        description: 'We build bespoke platforms tailored to your specific training needs, providing a flexible and powerful solution for managing and delivering content.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Low-Fidelity Prototyping',
+        description:
+          'We create simple, clickable wireframes to quickly validate your core concept and user flow.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Interactive Course Development',
-        description: 'We transform traditional learning materials into engaging, interactive courses with rich media, quizzes, and gamified elements.',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80',
+        title: 'High-Fidelity Prototyping',
+        description:
+          'We build realistic, interactive prototypes that closely mimic the final product, allowing for detailed usability testing and stakeholder feedback.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile Learning Solutions',
-        description: 'We design and develop mobile-first learning apps that allow your users to learn anytime, anywhere, on any device.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Integration with Existing Systems',
-        description: 'We integrate your e-learning platform with your current systems, such as HR tools and CRMs, to streamline user data and reporting.',
+        title: 'Interactive Demos',
+        description:
+          'We create engaging demos to showcase your product\'s key features to investors, partners, or internal teams.',
         image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Immersive Learning',
-        description: 'We combine instructional design principles with technologies like virtual reality (VR) and augmented reality (AR) to build scenarios that are both compelling and educational.',
-        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
+        title: 'Usability Testing Integration',
+        description:
+          'We use prototypes as the foundation for user testing, gathering actionable insights to refine the design before it moves into development.',
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
     ],
   } as const;
@@ -168,7 +187,7 @@ export default function DigitalPage() {
   const currentContent = contentMap[activeButton];
 
   return (
-    <div 
+    <div
       className="snap-container min-h-screen md:h-screen overflow-y-auto relative md:[scroll-snap-type:y_mandatory]"
       style={{
         scrollBehavior: 'smooth',
@@ -269,7 +288,7 @@ export default function DigitalPage() {
                       }}
                     >
                       <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light text-right">
-                        {rightColumnTitles[activeButton] ?? 'Digital Services'}
+                        {rightColumnTitles[activeButton] ?? 'Design Services'}
                       </h2>
                     </motion.div>
                     {activeCollapsibleItems.map((item, index) => (
@@ -288,7 +307,7 @@ export default function DigitalPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Service Buttons - Affixed to bottom of first section */}
           <div className="w-full mt-auto">
             <div className="flex flex-col md:flex-row">
@@ -426,3 +445,4 @@ export default function DigitalPage() {
     </div>
   );
 }
+

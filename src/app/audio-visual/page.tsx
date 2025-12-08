@@ -11,27 +11,35 @@ type CollapsibleEntry = {
   image: string;
 };
 
-export default function DigitalPage() {
+export default function AudioVisualPage() {
   const contentMap = [
     {
-      title: 'Engineered Design-Craft',
-      subtitle: 'Your business is unique, and your software should be too. Our Custom Development services are designed to build tailor-made technology solutions that fit your specific needs, streamline your operations, and give you a powerful competitive advantage.',
-      description: 'We go beyond off-the-shelf solutions. Our team of experienced developers and engineers works closely with you to understand your challenges and build scalable, secure, and high-performance applications that are designed to grow with your business.',
+      title: 'World-Class Audio. Local Vibes.',
+      subtitle:
+        'Sound is a powerful and often underestimated tool in digital marketing. Our Audio Production services go beyond simple voiceovers to create a rich, immersive soundscape for your brand. We help you use audio to build deeper connections, evoke emotion, and make your message resonate long after it\'s heard.',
+      description:
+        'We combine technical expertise with creative storytelling to produce audio that is clear, professional, and strategically aligned with your brand\'s voice. From compelling podcasts to crisp sound design, we ensure your audio is as impactful as your visuals.',
     },
     {
-      title: 'Connect Everything, Everywhere',
-      subtitle: 'In today\'s interconnected world, your business systems need to communicate seamlessly. Our Service Bus Integrations services create a robust and reliable backbone for your technology, ensuring that data flows effortlessly between your applications, platforms, and services.',
-      description: 'We specialize in building the critical connections that eliminate silos and automate your workflows. By implementing a service bus, we create a centralized communication channel that not only improves efficiency but also makes your entire tech ecosystem more scalable and resilient.',
+      title: 'Because Stories Live Forever',
+      subtitle:
+        'Video is the most powerful tool for telling your story and connecting with your audience. Our Video Production services are focused on creating high-quality, impactful visual content that drives engagement, builds brand trust, and delivers your message with clarity and style.',
+      description:
+        'We combine cinematic storytelling with a strategic, data-driven approach. From initial concept to final delivery, we handle every stage of the production process, ensuring your video is not only visually stunning but also a powerful asset for your marketing and communication goals.',
     },
     {
-      title: 'Commerce That Converts',
-      subtitle: 'In a digital-first economy, a powerful e-commerce platform is the engine of your business. It\'s more than just an online store; it\'s a strategic tool designed to attract customers, drive sales, and build brand loyalty. Our E-Commerce services are focused on creating seamless, scalable, and secure online shopping experiences that turn browsers into buyers.',
-      description: 'We combine a deep understanding of consumer behavior with cutting-edge technology to build platforms that are not only visually compelling but also optimized for performance and conversion. From a single product shop to a complex marketplace, we build the digital storefront you need to grow your business.',
+      title: 'Scale Smarter, Not Harder',
+      subtitle:
+        'Artificial Intelligence has revolutionized the way we earn online. Our AI-driven Affiliate Marketing services harness the power of automation and machine learning to identify high-converting opportunities, optimize campaigns in real-time, and maximize your revenue with precision and speed.',
+      description:
+        'We move beyond traditional referral methods by integrating advanced algorithms with strategic partnerships. From predicting market trends to automating content creation and performance tracking, we build a self-sustaining ecosystem. This ensures your campaigns are not just reactive but proactive, delivering consistent growth and measurable ROI.',
     },
     {
-      title: 'Leave Them Kids Alone…',
-      subtitle: 'The way we learn is changing, and so is the technology that powers it. Our E-Learning services are focused on creating engaging, intuitive, and scalable learning platforms that deliver knowledge effectively and efficiently. We help businesses, organizations, and educational institutions build custom solutions that turn a static curriculum into a dynamic learning experience.',
-      description: 'We combine instructional design principles with cutting-edge technology to build platforms that are not only easy to use but also optimized for retention and engagement. From corporate training modules to full-fledged educational platforms, we build the tools you need to educate and empower your audience.',
+      title: 'The Line Just Disappeared',
+      subtitle:
+        'The future isn\'t just on a screen—it\'s all around us. Our Emerging Tech - AR/VR services use augmented reality (AR) and virtual reality (VR) to create immersive experiences that captivate audiences and transform how they interact with your brand. We go beyond traditional visuals to build engaging, interactive worlds that leave a lasting impression.',
+      description:
+        'We combine a deep understanding of storytelling with the latest technology to bring your vision to life. From a virtual product tour to an interactive training simulation, we help you harness the power of AR/VR to create experiences that are not only memorable but also strategically aligned with your business goals.',
     },
   ];
 
@@ -40,17 +48,17 @@ export default function DigitalPage() {
   const [openMobileMenu, setOpenMobileMenu] = useState<number | null>(0); // First menu open by default
 
   const buttons = [
-    { id: 0, label: 'CUSTOM DEVELOPMENT' },
-    { id: 1, label: 'SERVICE BUS INTEGRATIONS' },
-    { id: 2, label: 'E-COMMERCE' },
-    { id: 3, label: 'E-LEARNING' },
+    { id: 0, label: 'AUDIO PRODUCTION' },
+    { id: 1, label: 'VIDEO PRODUCTION' },
+    { id: 2, label: 'AFFILIATE MARKETING' },
+    { id: 3, label: 'AR/VR' },
   ];
 
   const rightColumnTitles = [
-    'Our Custom Development Services',
-    'Our Service Bus Integration Services',
-    'Our E-Commerce Services',
-    'Our E-Learning Services',
+    'Our Audio Production Services',
+    'Our Video Production Services',
+    'Our AI Affiliate Services',
+    'Our AR/VR Services',
   ];
 
   const handleItemToggle = (index: number) => {
@@ -71,94 +79,111 @@ export default function DigitalPage() {
   const collapsibleContent: Record<number, CollapsibleEntry[]> = {
     0: [
       {
-        title: 'Web Application Development',
-        description: 'We build robust and interactive web applications, from customer portals to complex enterprise systems, designed for speed and usability.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'Podcast Production',
+        description:
+          'We handle everything from recording and editing to sound mixing and distribution, helping you launch a professional podcast that engages your audience.',
+        image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile App Development',
-        description: 'We create native and cross-platform mobile apps for iOS and Android that deliver seamless user experiences and drive engagement.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        title: 'Dubbing & Recording',
+        description:
+          'We provide high-quality voiceover services for commercials, IVRs, e-learning courses, explainer videos, and corporate presentations across Indian languages.',
+        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API & System Integration',
-        description: 'We connect your disparate systems and third-party tools, creating a unified and efficient technology ecosystem.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Radio Spots',
+        description:
+          'We create impactful radio spots and jingles, offering professional voiceover and sound design services tailored for radio and digital audio platforms in various Indian languages.',
+        image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'SaaS Product Development',
-        description: 'We partner with businesses to build and launch scalable, market-ready SaaS products from concept to execution.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+        title: 'Sound Design & Branding',
+        description:
+          'We create custom sound effects, jingles, and audio logos that build brand recognition and enhance the user experience.',
+        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Audio Post-Production',
+        description:
+          'We refine and mix your audio content to ensure it is clear, balanced, and ready for any platform.',
+        image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80',
       },
     ],
     1: [
       {
-        title: 'System & Application Integration',
-        description: 'We connect your CRM, ERP, marketing platforms, and custom applications to ensure they work together as one unified system.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'Corporate & Brand Videos',
+        description:
+          'We produce professional videos that showcase your company culture, highlight your services, and communicate your brand\'s unique story.',
+        image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API Management',
-        description: 'We design and implement APIs that allow your different services to communicate securely and efficiently, both internally and with external partners.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Commercials & Promotional Content',
+        description:
+          'We create compelling video ads and promotional content designed to capture attention and drive conversions.',
+        image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Data Orchestration',
-        description: 'We build a structured process for data to move between systems, ensuring accuracy, consistency, and timely delivery.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+        title: 'Explainer Videos & Product Demos',
+        description:
+          'We simplify complex ideas and products through engaging animated and live-action videos that educate your audience and generate leads.',
+        image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Legacy System Modernization',
-        description: 'We integrate your older systems with modern cloud services and applications, extending their lifespan and improving their functionality.',
-        image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80',
+        title: 'Video Post-Production',
+        description:
+          'We handle all the technical and creative aspects of post-production, including editing, color grading, motion graphics, and sound design to bring your vision to life.',
+        image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80',
       },
     ],
     2: [
       {
-        title: 'Custom E-Commerce Development',
-        description: 'We build bespoke online stores tailored to your unique business model, providing a flexible and powerful solution.',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+        title: 'AI-Driven Niche Research',
+        description:
+          'We use predictive algorithms to analyze market trends and competition, helping you identify high-profit niches and products before they saturate the market.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Platform Integration',
-        description: 'We seamlessly integrate your store with your existing systems, including CRM, inventory management, and marketing automation tools.',
-        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+        title: 'Automated Content Generation',
+        description:
+          'We leverage generative AI to create high-quality, SEO-optimized content—from blog posts to social media captions—at scale, ensuring you never run out of ways to engage your audience.',
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'User Experience (UX) Design',
-        description: 'We design intuitive and engaging shopping journeys that simplify the path from product discovery to checkout.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Smart Campaign Optimization',
+        description:
+          'We utilize machine learning to monitor your campaigns 24/7, automatically adjusting bids, targeting, and messaging to ensure the highest possible conversion rates.',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Payment & Security Solutions',
-        description: 'We implement secure payment gateways and robust security measures to protect your business and your customers.',
-        image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80',
+        title: 'Performance Analytics',
+        description:
+          'We provide deep-dive reporting that goes beyond clicks, using data to forecast future revenue and identify the exact behaviors driving your sales.',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
     ],
     3: [
       {
-        title: 'Custom Learning Management Systems (LMS)',
-        description: 'We build bespoke platforms tailored to your specific training needs, providing a flexible and powerful solution for managing and delivering content.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Augmented Reality (AR)',
+        description:
+          'We develop AR experiences that overlay digital content onto the real world through mobile devices, perfect for interactive marketing campaigns, retail experiences, and product visualization.',
+        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Interactive Course Development',
-        description: 'We transform traditional learning materials into engaging, interactive courses with rich media, quizzes, and gamified elements.',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80',
+        title: 'Virtual Reality (VR)',
+        description:
+          'We create fully immersive VR environments for product demos, virtual tours, educational content, and corporate training.',
+        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile Learning Solutions',
-        description: 'We design and develop mobile-first learning apps that allow your users to learn anytime, anywhere, on any device.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        title: 'Interactive Installations',
+        description:
+          'We design and build custom AR/VR installations for events, trade shows, and physical locations to create unique and engaging experiences.',
+        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Integration with Existing Systems',
-        description: 'We integrate your e-learning platform with your current systems, such as HR tools and CRMs, to streamline user data and reporting.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Immersive Learning',
-        description: 'We combine instructional design principles with technologies like virtual reality (VR) and augmented reality (AR) to build scenarios that are both compelling and educational.',
+        title: 'WebAR/VR Solutions',
+        description:
+          'We develop browser-based AR/VR experiences that don\'t require an app download, making them accessible to a wider audience.',
         image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
       },
     ],
@@ -168,7 +193,7 @@ export default function DigitalPage() {
   const currentContent = contentMap[activeButton];
 
   return (
-    <div 
+    <div
       className="snap-container min-h-screen md:h-screen overflow-y-auto relative md:[scroll-snap-type:y_mandatory]"
       style={{
         scrollBehavior: 'smooth',
@@ -269,7 +294,7 @@ export default function DigitalPage() {
                       }}
                     >
                       <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light text-right">
-                        {rightColumnTitles[activeButton] ?? 'Digital Services'}
+                        {rightColumnTitles[activeButton] ?? 'Audio-Visual Services'}
                       </h2>
                     </motion.div>
                     {activeCollapsibleItems.map((item, index) => (
@@ -288,7 +313,7 @@ export default function DigitalPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Service Buttons - Affixed to bottom of first section */}
           <div className="w-full mt-auto">
             <div className="flex flex-col md:flex-row">
@@ -426,3 +451,4 @@ export default function DigitalPage() {
     </div>
   );
 }
+

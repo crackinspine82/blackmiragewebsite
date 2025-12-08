@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
 import { CollapsibleItem } from '@/components/CollapsibleItem';
@@ -11,47 +11,56 @@ type CollapsibleEntry = {
   image: string;
 };
 
-export default function DigitalPage() {
+export default function ResearchPage() {
   const contentMap = [
     {
-      title: 'Engineered Design-Craft',
-      subtitle: 'Your business is unique, and your software should be too. Our Custom Development services are designed to build tailor-made technology solutions that fit your specific needs, streamline your operations, and give you a powerful competitive advantage.',
-      description: 'We go beyond off-the-shelf solutions. Our team of experienced developers and engineers works closely with you to understand your challenges and build scalable, secure, and high-performance applications that are designed to grow with your business.',
+      title: 'Unlock Your Competitive Edge',
+      subtitle:
+        "In a crowded market, understanding your audience isn't a luxury—it's a necessity. Our Market Research services go beyond surface-level data to uncover the insights that truly matter, giving you a competitive edge.",
+      description:
+        "We combine advanced technology with strategic analysis to identify key trends, evaluate your competitive landscape, and deeply understand your customer's needs and behaviors. This isn't just about collecting data; it's about turning that data into a clear, actionable strategy.",
     },
     {
-      title: 'Connect Everything, Everywhere',
-      subtitle: 'In today\'s interconnected world, your business systems need to communicate seamlessly. Our Service Bus Integrations services create a robust and reliable backbone for your technology, ensuring that data flows effortlessly between your applications, platforms, and services.',
-      description: 'We specialize in building the critical connections that eliminate silos and automate your workflows. By implementing a service bus, we create a centralized communication channel that not only improves efficiency but also makes your entire tech ecosystem more scalable and resilient.',
+      title: 'Design That Actually Works',
+      subtitle:
+        'Great design is more than just aesthetics; it’s about solving problems for people. Our Design Research services provide the critical insights needed to create experiences that are not only beautiful but also intuitive, effective, and truly user-centered.',
+      description:
+        'We bridge the gap between user needs and business goals by putting real people at the center of the design process. Using a mix of qualitative and quantitative methods, we uncover what users think, feel, and do, ensuring your products, services, and websites are designed for success.',
     },
     {
-      title: 'Commerce That Converts',
-      subtitle: 'In a digital-first economy, a powerful e-commerce platform is the engine of your business. It\'s more than just an online store; it\'s a strategic tool designed to attract customers, drive sales, and build brand loyalty. Our E-Commerce services are focused on creating seamless, scalable, and secure online shopping experiences that turn browsers into buyers.',
-      description: 'We combine a deep understanding of consumer behavior with cutting-edge technology to build platforms that are not only visually compelling but also optimized for performance and conversion. From a single product shop to a complex marketplace, we build the digital storefront you need to grow your business.',
+      title: 'Decode Your Digital Tribe',
+      subtitle:
+        "In the digital age, understanding your audience means meeting them where they are: online. Our Virtual Ethnography services go beyond traditional analytics to provide rich, qualitative insights into your customers' natural digital habitats.",
+      description:
+        'We observe, analyze, and interpret human behavior in online communities, social media, and virtual environments. This deep-dive approach reveals the unspoken motivations, cultural norms, and authentic interactions that quantitative data simply can’t capture. By understanding the \"why\" behind the \"what,\" we help you create more meaningful and effective digital experiences.',
     },
     {
-      title: 'Leave Them Kids Alone…',
-      subtitle: 'The way we learn is changing, and so is the technology that powers it. Our E-Learning services are focused on creating engaging, intuitive, and scalable learning platforms that deliver knowledge effectively and efficiently. We help businesses, organizations, and educational institutions build custom solutions that turn a static curriculum into a dynamic learning experience.',
-      description: 'We combine instructional design principles with cutting-edge technology to build platforms that are not only easy to use but also optimized for retention and engagement. From corporate training modules to full-fledged educational platforms, we build the tools you need to educate and empower your audience.',
+      title: 'From Numbers To Narrative',
+      subtitle:
+        "Data is everywhere, but without a clear strategy, it's just noise. Our Analytics & Insights services transform raw data into a powerful narrative, providing you with the intelligence needed to make smarter business decisions and drive measurable growth.",
+      description:
+        'We don\'t just track numbers; we uncover the "why" behind them. By combining advanced analytics with strategic interpretation, we help you understand your audience\'s behavior, optimize your campaigns, and find new opportunities to connect with your customers.',
     },
   ];
 
   const [activeButton, setActiveButton] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [openItem, setOpenItem] = useState<number | null>(null);
   const [openMobileMenu, setOpenMobileMenu] = useState<number | null>(0); // First menu open by default
 
   const buttons = [
-    { id: 0, label: 'CUSTOM DEVELOPMENT' },
-    { id: 1, label: 'SERVICE BUS INTEGRATIONS' },
-    { id: 2, label: 'E-COMMERCE' },
-    { id: 3, label: 'E-LEARNING' },
+    { id: 0, label: 'MARKET RESEARCH' },
+    { id: 1, label: 'DESIGN RESEARCH' },
+    { id: 2, label: 'VIRTUAL ETHNOGRAPHY' },
+    { id: 3, label: 'ANALYTICS & INSIGHTS' },
   ];
 
-  const rightColumnTitles = [
-    'Our Custom Development Services',
-    'Our Service Bus Integration Services',
-    'Our E-Commerce Services',
-    'Our E-Learning Services',
-  ];
+   const rightColumnTitles = [
+     'Our Market Research Services Includes',
+     'Design Research Methods Process Includes',
+     'What We Observe & Analyze',
+     'How We Turn Data Into Action',
+   ];
 
   const handleItemToggle = (index: number) => {
     setOpenItem((prevOpenItem) => (prevOpenItem === index ? null : index));
@@ -64,6 +73,7 @@ export default function DigitalPage() {
   };
 
   const handleMobileMenuToggle = (id: number) => {
+    // If clicking the same menu, close it. Otherwise, open the clicked menu and close others
     setOpenMobileMenu((prev) => (prev === id ? null : id));
     setOpenItem(null); // Close any open collapsible items when switching menus
   };
@@ -71,104 +81,132 @@ export default function DigitalPage() {
   const collapsibleContent: Record<number, CollapsibleEntry[]> = {
     0: [
       {
-        title: 'Web Application Development',
-        description: 'We build robust and interactive web applications, from customer portals to complex enterprise systems, designed for speed and usability.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'Competitive Analysis',
+        description:
+          "Analyze your competitors' strengths, weaknesses, and market positioning to help you identify untapped opportunities and build a smarter strategy.",
+        image:
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile App Development',
-        description: 'We create native and cross-platform mobile apps for iOS and Android that deliver seamless user experiences and drive engagement.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        title: 'Audience Segmentation',
+        description:
+          'Define and understand your target audiences, allowing for more personalized and effective marketing campaigns.',
+        image:
+          'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API & System Integration',
-        description: 'We connect your disparate systems and third-party tools, creating a unified and efficient technology ecosystem.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Trend Forecasting',
+        description:
+          "Use data-driven insights to help you stay ahead of market shifts and consumer trends, ensuring your business is always prepared for what's next.",
+        image:
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'SaaS Product Development',
-        description: 'We partner with businesses to build and launch scalable, market-ready SaaS products from concept to execution.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+        title: 'Feasibility Studies',
+        description:
+          'Evaluate new business ideas and product launches to identify potential risks and opportunities, ensuring you make informed decisions.',
+        image:
+          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
       },
     ],
     1: [
       {
-        title: 'System & Application Integration',
-        description: 'We connect your CRM, ERP, marketing platforms, and custom applications to ensure they work together as one unified system.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        title: 'User Interviews',
+        description:
+          'Conduct one-on-one sessions to uncover user goals, motivations, and pain points in their own words.',
+        image:
+          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'API Management',
-        description: 'We design and implement APIs that allow your different services to communicate securely and efficiently, both internally and with external partners.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+        title: 'Usability Testing',
+        description:
+          'Observe users as they interact with your product to identify what works and where improvements are needed.',
+        image:
+          'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Data Orchestration',
-        description: 'We build a structured process for data to move between systems, ensuring accuracy, consistency, and timely delivery.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+        title: 'Journey Mapping',
+        description:
+          "Create visual representations of the user's journey to highlight key touchpoints, emotions, and opportunities for improvement.",
+        image:
+          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Legacy System Modernization',
-        description: 'We integrate your older systems with modern cloud services and applications, extending their lifespan and improving their functionality.',
-        image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80',
+        title: 'Card Sorting & Tree Testing',
+        description:
+          'Test information architecture to ensure your content is logically organized and easy for users to find.',
+        image:
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
     ],
     2: [
       {
-        title: 'Custom E-Commerce Development',
-        description: 'We build bespoke online stores tailored to your unique business model, providing a flexible and powerful solution.',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80',
+        title: 'Online Communities',
+        description:
+          'We immerse ourselves in forums, groups, and platforms where your audience congregates to understand their conversations, concerns, and interests.',
+        image:
+          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Platform Integration',
-        description: 'We seamlessly integrate your store with your existing systems, including CRM, inventory management, and marketing automation tools.',
-        image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+        title: 'Social Media Behavior',
+        description:
+          'We analyze how users interact, share content, and express themselves on social media to uncover brand perceptions and trends.',
+        image:
+          'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'User Experience (UX) Design',
-        description: 'We design intuitive and engaging shopping journeys that simplify the path from product discovery to checkout.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Digital Rituals',
+        description:
+          'We identify the unique behaviors, language, and rituals that define your audience\'s online culture.',
+        image:
+          'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Payment & Security Solutions',
-        description: 'We implement secure payment gateways and robust security measures to protect your business and your customers.',
-        image: 'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=800&q=80',
+        title: 'User-Generated Content',
+        description:
+          'We study how your brand is discussed and represented by users to gain authentic feedback and insights.',
+        image:
+          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       },
     ],
     3: [
       {
-        title: 'Custom Learning Management Systems (LMS)',
-        description: 'We build bespoke platforms tailored to your specific training needs, providing a flexible and powerful solution for managing and delivering content.',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+        title: 'Data Strategy & Measurement',
+        description:
+          'We help you define your key performance indicators (KPIs) and set up the right tools to measure what truly matters for your business.',
+        image:
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Interactive Course Development',
-        description: 'We transform traditional learning materials into engaging, interactive courses with rich media, quizzes, and gamified elements.',
-        image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80',
+        title: 'Performance Analysis',
+        description:
+          "We analyze your digital campaigns, website traffic, and user behavior to identify what's working and where to improve your return on investment (ROI).",
+        image:
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Mobile Learning Solutions',
-        description: 'We design and develop mobile-first learning apps that allow your users to learn anytime, anywhere, on any device.',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+        title: 'Predictive Analytics',
+        description:
+          'We use historical data to forecast future trends and customer behavior, giving you a strategic advantage over the competition.',
+        image:
+          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Integration with Existing Systems',
-        description: 'We integrate your e-learning platform with your current systems, such as HR tools and CRMs, to streamline user data and reporting.',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Immersive Learning',
-        description: 'We combine instructional design principles with technologies like virtual reality (VR) and augmented reality (AR) to build scenarios that are both compelling and educational.',
-        image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
+        title: 'Dashboarding & Reporting',
+        description:
+          'We create easy-to-understand dashboards and reports that put complex data into a clear, visual format, making insights accessible to everyone on your team.',
+        image:
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
       },
     ],
   } as const;
 
   const activeCollapsibleItems = collapsibleContent[activeButton as keyof typeof collapsibleContent] ?? collapsibleContent[0];
+
   const currentContent = contentMap[activeButton];
 
   return (
-    <div 
+    <div
       className="snap-container min-h-screen md:h-screen overflow-y-auto relative md:[scroll-snap-type:y_mandatory]"
       style={{
         scrollBehavior: 'smooth',
@@ -177,7 +215,7 @@ export default function DigitalPage() {
       <PageTransition>
         {/* Desktop Layout - Hidden on mobile */}
         <main className="hidden md:flex min-h-screen snap-start flex-col">
-          <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-4 pt-20 md:pt-4">
+          <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-4 pt-24 md:pt-4">
             <div className="flex flex-col md:flex-row mb-4 md:mb-12 px-4 sm:px-8 gap-8">
               {/* Left Column - Content */}
               <div className="md:w-1/2 space-y-6 flex flex-col justify-center">
@@ -241,7 +279,7 @@ export default function DigitalPage() {
                     animate={{ 
                       opacity: 1,
                       transition: { 
-                        delay: 1.0,
+                        delay: 1.0, // Appears after title (0.7s) + subtitle (0.85s) + description (1.0s) finish
                         duration: 0.7, 
                         ease: [0.4, 0, 0.2, 1] 
                       }
@@ -262,14 +300,14 @@ export default function DigitalPage() {
                         opacity: 1, 
                         y: 0,
                         transition: { 
-                          delay: 1.05,
+                          delay: 1.05, // Slight delay after parent container starts appearing
                           duration: 0.4,
                           ease: [0.4, 0, 0.2, 1]
                         }
                       }}
                     >
                       <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light text-right">
-                        {rightColumnTitles[activeButton] ?? 'Digital Services'}
+                        {rightColumnTitles[activeButton] ?? 'Research Services'}
                       </h2>
                     </motion.div>
                     {activeCollapsibleItems.map((item, index) => (
@@ -288,7 +326,7 @@ export default function DigitalPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Service Buttons - Affixed to bottom of first section */}
           <div className="w-full mt-auto">
             <div className="flex flex-col md:flex-row">
@@ -327,8 +365,8 @@ export default function DigitalPage() {
         </main>
 
         {/* Mobile Layout - Vertical Collapsible Menus */}
-        <main className="md:hidden min-h-screen flex flex-col bg-white pt-20">
-          <div className="flex-1 px-4 py-8 space-y-0">
+        <main className="md:hidden flex flex-col bg-white pt-20 pb-8">
+          <div className="px-4 py-8 space-y-0">
             {buttons.map((button, index) => {
               const isOpen = openMobileMenu === button.id;
               const content = contentMap[button.id];
