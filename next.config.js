@@ -17,6 +17,15 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { dev, isServer }) => {
+    // Use memory cache in development to avoid file system cache errors
+    if (dev) {
+      config.cache = {
+        type: 'memory',
+      };
+    }
+    return config;
+  },
 }
 
 module.exports = nextConfig

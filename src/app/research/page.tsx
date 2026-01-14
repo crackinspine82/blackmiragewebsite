@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
 import { CollapsibleItem } from '@/components/CollapsibleItem';
+import { useTheme } from '@/contexts/ThemeContext';
 
 type CollapsibleEntry = {
   title: string;
@@ -46,7 +47,8 @@ export default function ResearchPage() {
   const [activeButton, setActiveButton] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [openItem, setOpenItem] = useState<number | null>(null);
-  const [openMobileMenu, setOpenMobileMenu] = useState<number | null>(0); // First menu open by default
+  const { isInverted, setIsInverted } = useTheme();
+  const theme = isInverted ? 'dark' : 'light';
 
   const buttons = [
     { id: 0, label: 'MARKET RESEARCH' },
@@ -70,12 +72,7 @@ export default function ResearchPage() {
     if (id === activeButton) return;
     setOpenItem(null);
     setActiveButton(id);
-  };
-
-  const handleMobileMenuToggle = (id: number) => {
-    // If clicking the same menu, close it. Otherwise, open the clicked menu and close others
-    setOpenMobileMenu((prev) => (prev === id ? null : id));
-    setOpenItem(null); // Close any open collapsible items when switching menus
+    setIsInverted(!isInverted);
   };
 
   const collapsibleContent: Record<number, CollapsibleEntry[]> = {
@@ -85,28 +82,28 @@ export default function ResearchPage() {
         description:
           "Analyze your competitors' strengths, weaknesses, and market positioning to help you identify untapped opportunities and build a smarter strategy.",
         image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Audience Segmentation',
         description:
           'Define and understand your target audiences, allowing for more personalized and effective marketing campaigns.',
         image:
-          'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Trend Forecasting',
         description:
           "Use data-driven insights to help you stay ahead of market shifts and consumer trends, ensuring your business is always prepared for what's next.",
         image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Feasibility Studies',
         description:
           'Evaluate new business ideas and product launches to identify potential risks and opportunities, ensuring you make informed decisions.',
         image:
-          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
       },
     ],
     1: [
@@ -115,28 +112,28 @@ export default function ResearchPage() {
         description:
           'Conduct one-on-one sessions to uncover user goals, motivations, and pain points in their own words.',
         image:
-          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Usability Testing',
         description:
           'Observe users as they interact with your product to identify what works and where improvements are needed.',
         image:
-          'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Journey Mapping',
         description:
           "Create visual representations of the user's journey to highlight key touchpoints, emotions, and opportunities for improvement.",
         image:
-          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Card Sorting & Tree Testing',
         description:
           'Test information architecture to ensure your content is logically organized and easy for users to find.',
         image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80',
       },
     ],
     2: [
@@ -145,28 +142,28 @@ export default function ResearchPage() {
         description:
           'We immerse ourselves in forums, groups, and platforms where your audience congregates to understand their conversations, concerns, and interests.',
         image:
-          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Social Media Behavior',
         description:
           'We analyze how users interact, share content, and express themselves on social media to uncover brand perceptions and trends.',
         image:
-          'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Digital Rituals',
         description:
-          'We identify the unique behaviors, language, and rituals that define your audience\'s online culture.',
+          'We identify the unique behaviors, language, and rituals that define your audience’s online culture.',
         image:
-          'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'User-Generated Content',
         description:
           'We study how your brand is discussed and represented by users to gain authentic feedback and insights.',
         image:
-          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
       },
     ],
     3: [
@@ -175,28 +172,28 @@ export default function ResearchPage() {
         description:
           'We help you define your key performance indicators (KPIs) and set up the right tools to measure what truly matters for your business.',
         image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Performance Analysis',
         description:
           "We analyze your digital campaigns, website traffic, and user behavior to identify what's working and where to improve your return on investment (ROI).",
         image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Predictive Analytics',
         description:
           'We use historical data to forecast future trends and customer behavior, giving you a strategic advantage over the competition.',
         image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
       },
       {
         title: 'Dashboarding & Reporting',
         description:
           'We create easy-to-understand dashboards and reports that put complex data into a clear, visual format, making insights accessible to everyone on your team.',
         image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
       },
     ],
   } as const;
@@ -206,16 +203,18 @@ export default function ResearchPage() {
   const currentContent = contentMap[activeButton];
 
   return (
-    <div
-      className="snap-container min-h-screen md:h-screen overflow-y-auto relative md:[scroll-snap-type:y_mandatory]"
-      style={{
-        scrollBehavior: 'smooth',
-      }}
-    >
+    <div className="relative min-h-screen">
       <PageTransition>
-        {/* Desktop Layout - Hidden on mobile */}
-        <main className="hidden md:flex min-h-screen snap-start flex-col">
-          <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-4 pt-24 md:pt-4">
+        <motion.div
+          className="min-h-screen"
+          animate={{
+            backgroundColor: isInverted ? '#000000' : '#ffffff',
+            color: isInverted ? '#ffffff' : '#000000',
+          }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <main className="min-h-screen snap-start flex flex-col">
+          <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-4">
             <div className="flex flex-col md:flex-row mb-4 md:mb-12 px-4 sm:px-8 gap-8">
               {/* Left Column - Content */}
               <div className="md:w-1/2 space-y-6 flex flex-col justify-center">
@@ -234,7 +233,9 @@ export default function ResearchPage() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 40 }}
                       transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-black font-josefin tracking-normal"
+                      className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-josefin tracking-normal ${
+                        isInverted ? 'text-white' : 'text-black'
+                      }`}
                     >
                       {currentContent.title || '\u00A0'}
                     </motion.h1>
@@ -246,7 +247,9 @@ export default function ResearchPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 40 }}
                         transition={{ duration: 0.7, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
-                        className="text-lg sm:text-xl md:text-2xl text-gray-600 font-light"
+                        className={`text-lg sm:text-xl md:text-2xl font-light ${
+                          isInverted ? 'text-gray-300' : 'text-gray-600'
+                        }`}
                       >
                         {currentContent.subtitle || '\u00A0'}
                       </motion.p>
@@ -260,7 +263,11 @@ export default function ResearchPage() {
                           transition={{ duration: 0.7, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
                           className="pt-4"
                         >
-                          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+                          <p
+                            className={`text-lg sm:text-xl md:text-2xl font-light leading-relaxed ${
+                              isInverted ? 'text-gray-300' : 'text-gray-600'
+                            }`}
+                          >
                             {currentContent.description}
                           </p>
                         </motion.div>
@@ -306,7 +313,11 @@ export default function ResearchPage() {
                         }
                       }}
                     >
-                      <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light text-right">
+                      <h2
+                        className={`text-lg sm:text-xl md:text-2xl font-light text-right ${
+                          isInverted ? 'text-gray-200' : 'text-gray-700'
+                        }`}
+                      >
                         {rightColumnTitles[activeButton] ?? 'Research Services'}
                       </h2>
                     </motion.div>
@@ -319,6 +330,7 @@ export default function ResearchPage() {
                         isOpen={openItem === index}
                         onToggle={() => handleItemToggle(index)}
                         imageSrc={item.image}
+                        theme={theme}
                       />
                     ))}
                   </motion.div>
@@ -328,138 +340,37 @@ export default function ResearchPage() {
           </div>
 
           {/* Service Buttons - Affixed to bottom of first section */}
-          <div className="w-full mt-auto">
+          <motion.div 
+            className="w-full mt-auto"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ 
+              duration: 0.7, 
+              delay: 0.5,
+              ease: [0.4, 0, 0.2, 1] 
+            }}
+          >
             <div className="flex flex-col md:flex-row">
-              {buttons.map((button) => {
-                const isActive = activeButton === button.id;
-                return (
-                  <motion.button
-                    key={button.id}
-                    onClick={() => handleButtonClick(button.id)}
-                    className={`w-full h-16 md:h-20 flex items-center justify-center font-josefin font-bold text-sm sm:text-base md:text-lg relative overflow-hidden`}
-                    animate={{
-                      backgroundColor: isActive ? '#ffffff' : [
-                        '#374151', // gray-700
-                        '#1f2937', // gray-800
-                        '#111827', // gray-900
-                        '#000000', // black
-                      ][button.id],
-                      color: isActive ? '#000000' : '#ffffff',
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    whileHover={!isActive ? {
-                      backgroundColor: [
-                        '#4b5563', // gray-600
-                        '#374151', // gray-700
-                        '#1f2937', // gray-800
-                        '#111827', // gray-900
-                      ][button.id],
-                    } : {}}
-                  >
-                    {button.label}
-                  </motion.button>
-                );
-              })}
-            </div>
-          </div>
-        </main>
-
-        {/* Mobile Layout - Vertical Collapsible Menus */}
-        <main className="md:hidden flex flex-col bg-white pt-20 pb-8">
-          <div className="px-4 py-8 space-y-0">
-            {buttons.map((button, index) => {
-              const isOpen = openMobileMenu === button.id;
-              const content = contentMap[button.id];
-              const collapsibleItems = collapsibleContent[button.id as keyof typeof collapsibleContent] ?? [];
-              const menuTitle = rightColumnTitles[button.id];
-
-              return (
-                <div
+              {buttons.map((button) => (
+                <button
                   key={button.id}
-                  className="w-full"
+                  onClick={() => handleButtonClick(button.id)}
+                  className={`w-full h-16 md:h-20 ${
+                    [
+                      'bg-gray-700 hover:bg-gray-600',
+                      'bg-gray-800 hover:bg-gray-700',
+                      'bg-gray-900 hover:bg-gray-800',
+                      'bg-black hover:bg-gray-900',
+                    ][button.id]
+                  } text-white flex items-center justify-center font-josefin font-bold text-sm sm:text-base md:text-lg transition-colors duration-200`}
                 >
-                  {/* Menu Button */}
-                  <button
-                    onClick={() => handleMobileMenuToggle(button.id)}
-                    className={`w-full text-left p-5 ${
-                      [
-                        'bg-gray-700',
-                        'bg-gray-800',
-                        'bg-gray-900',
-                        'bg-black',
-                      ][button.id]
-                    } text-white flex items-center justify-between font-josefin font-bold text-base transition-all duration-200 border-b border-gray-600`}
-                  >
-                    <span>{button.label}</span>
-                    <motion.span
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-xl"
-                    >
-                      ▼
-                    </motion.span>
-                  </button>
-
-                  {/* Expanded Content */}
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className="overflow-hidden bg-white"
-                      >
-                        <div className="p-6 space-y-6">
-                          {/* Title */}
-                          <h1 className="text-3xl sm:text-4xl font-black text-black font-josefin tracking-normal">
-                            {content.title}
-                          </h1>
-
-                          {/* Subtitle */}
-                          <p className="text-lg sm:text-xl text-gray-600 font-light">
-                            {content.subtitle}
-                          </p>
-
-                          {/* Description */}
-                          {content.description && (
-                            <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed">
-                              {content.description}
-                            </p>
-                          )}
-
-                          {/* Collapsible Items Section */}
-                          <div className="pt-4">
-                            <h2 className="text-lg sm:text-xl text-gray-700 font-light mb-4">
-                              {menuTitle}
-                            </h2>
-                            <div className="space-y-0">
-                              {collapsibleItems.map((item, itemIndex) => (
-                                <CollapsibleItem
-                                  key={item.title}
-                                  title={item.title}
-                                  description={item.description}
-                                  isLast={itemIndex === collapsibleItems.length - 1}
-                                  isOpen={openItem === itemIndex && openMobileMenu === button.id}
-                                  onToggle={() => {
-                                    if (openMobileMenu === button.id) {
-                                      handleItemToggle(itemIndex);
-                                    }
-                                  }}
-                                  imageSrc={item.image}
-                                />
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </main>
+                  {button.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+          </main>
+        </motion.div>
       </PageTransition>
     </div>
   );

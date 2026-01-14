@@ -1,0 +1,24 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'next.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/digital/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/layout.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/app/research/page.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/CollapsibleItem.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/PageTransition.tsx', LF will be replaced by CRLF the next time Git touches it
+M	.gitignore
+M	next.config.js
+M	src/app/audio-visual/page.tsx
+D	src/app/connect/page.tsx
+D	src/app/crew/page.tsx
+M	src/app/design/page.tsx
+M	src/app/digital/page.tsx
+M	src/app/layout.tsx
+M	src/app/research/page.tsx
+M	src/app/strategy/page.tsx
+M	src/components/CollapsibleItem.tsx
+D	src/components/ConditionalFooter.tsx
+M	src/components/Footer.tsx
+M	src/components/Navbar.tsx
+M	src/components/PageTransition.tsx

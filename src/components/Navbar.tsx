@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@/contexts/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 const MenuIcon = () => (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -22,10 +23,23 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const { isInverted, setIsInverted } = useTheme();
   const pathname = usePathname();
   
-  // Check if we're on the connect page (black background)
+  // Always use black text on homepage and crew page, white text on connect page, regardless of theme state
+  const isHomepage = pathname === '/';
   const isConnectPage = pathname === '/connect';
+  const isCrewPage = pathname === '/crew';
+  const shouldUseBlackText = isHomepage || isCrewPage ? true : (isConnectPage ? false : !isInverted);
+  
+  // Reset theme immediately when navigating to homepage, crew page, or connect page
+  useEffect(() => {
+    if (isHomepage || isCrewPage) {
+      setIsInverted(false);
+    } else if (isConnectPage) {
+      setIsInverted(true);
+    }
+  }, [isHomepage, isCrewPage, isConnectPage, setIsInverted]);
   
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -36,59 +50,35 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  // Close menu when route changes
   useEffect(() => {
-    closeMenu();
-  }, [pathname]);
-
-  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
-        const currentScrollY = window.scrollY;
-        
-        // Only start hiding after 50px of scrolling
-        if (currentScrollY > 50) {
-          if (currentScrollY > lastScrollY) {
-            // Scrolling down
-            setIsVisible(false);
-          } else {
-            // Scrolling up
-            setIsVisible(true);
-          }
+      const currentScrollY = window.scrollY;
+      
+      // Only start hiding after 50px of scrolling
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          setIsVisible(false);
         } else {
-          // At the top of the page
+          // Scrolling up
           setIsVisible(true);
         }
-        
-        setLastScrollY(currentScrollY);
+      } else {
+        // At the top of the page
+        setIsVisible(true);
       }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar, { passive: true });
-      return () => window.removeEventListener('scroll', controlNavbar);
-    }
+    window.addEventListener('scroll', controlNavbar, { passive: true });
+    return () => window.removeEventListener('scroll', controlNavbar);
   }, [lastScrollY]);
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen) {
-        const target = event.target as HTMLElement;
-        if (!target.closest('nav')) {
-          closeMenu();
-        }
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [isOpen]);
-
   return (
-    <motion.nav 
+    <motion.div
       className="w-full fixed top-0 left-0 z-50"
       initial={{ opacity: 1 }}
       animate={{ 
@@ -96,11 +86,12 @@ export default function Navbar() {
       }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
+      <nav className="w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" onClick={closeMenu} className="flex items-center font-montserrat">
+            <Link href="/" className="flex items-center font-montserrat">
               <div className="w-[180px]">
                 <Image 
                   src="/logo.png" 
@@ -115,66 +106,55 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden sm:flex items-center space-x-8 font-roboto">
-            <Link 
-              href="/research" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Research
-            </Link>
-            <Link 
-              href="/strategy" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Strategy
-            </Link>
-            <Link 
-              href="/design" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Design
-            </Link>
-            <Link 
-              href="/digital" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Digital
-            </Link>
-            <Link 
-              href="/audio-visual" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Audio-Visual
-            </Link>
-            <Link 
-              href="/crew" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Crew
-            </Link>
-            <Link 
-              href="/connect" 
-              className={isConnectPage ? "text-white hover:text-gray-300 transition-colors duration-200 text-base font-medium" : "text-black hover:text-gray-700 transition-colors duration-200 text-base font-medium"}
-              onClick={closeMenu}
-            >
-              Connect
-            </Link>
+            {[
+              { href: '/research', label: 'Research' },
+              { href: '/strategy', label: 'Strategy' },
+              { href: '/design', label: 'Design' },
+              { href: '/digital', label: 'Digital' },
+              { href: '/audio-visual', label: 'Audio-Visual' },
+              { href: '/crew', label: 'Crew' },
+              { href: '/connect', label: 'Connect' },
+            ].map((navItem) => {
+              const isActive = pathname === navItem.href;
+              return (
+                <motion.div
+                  key={navItem.href}
+                  animate={{
+                    color: isActive 
+                      ? '#dc2626' 
+                      : (shouldUseBlackText ? '#000000' : '#ffffff'),
+                  }}
+                  whileHover={{
+                    color: '#dc2626',
+                  }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                >
+                  <Link 
+                    href={navItem.href} 
+                    className="text-base font-medium"
+                    onClick={closeMenu}
+                    style={{ color: 'inherit' }}
+                  >
+                    {navItem.label}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Mobile menu button */}
           <div className="sm:hidden flex items-center">
-            <button 
+            <motion.button 
               onClick={toggleMenu}
-              className={`p-2 rounded-full ${isConnectPage ? 'text-white' : 'text-black'}`}
+              className="p-2 rounded-full"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              animate={{
+                color: shouldUseBlackText ? '#000000' : '#ffffff',
+              }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
             >
               {isOpen ? <XIcon /> : <MenuIcon />}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -183,7 +163,6 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            key="mobile-menu"
             className="sm:hidden overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{
@@ -203,32 +182,51 @@ export default function Navbar() {
               }
             }}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm shadow-lg">
-              <Link href="/research" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Research
-              </Link>
-              <Link href="/strategy" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Strategy
-              </Link>
-              <Link href="/design" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Design
-              </Link>
-              <Link href="/digital" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Digital
-              </Link>
-              <Link href="/audio-visual" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Audio-Visual
-              </Link>
-              <Link href="/crew" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Crew
-              </Link>
-              <Link href="/connect" onClick={closeMenu} className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-50">
-                Connect
-              </Link>
-            </div>
+          <motion.div 
+            className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-sm shadow-lg"
+            animate={{
+              backgroundColor: isHomepage || isCrewPage ? 'rgba(255, 255, 255, 0.95)' : (isConnectPage ? 'rgba(0, 0, 0, 0.95)' : (isInverted ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)')),
+            }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            {[
+              { href: '/research', label: 'Research' },
+              { href: '/strategy', label: 'Strategy' },
+              { href: '/design', label: 'Design' },
+              { href: '/digital', label: 'Digital' },
+              { href: '/audio-visual', label: 'Audio-Visual' },
+              { href: '/crew', label: 'Crew' },
+              { href: '/connect', label: 'Connect' },
+            ].map((navItem) => {
+              const isActive = pathname === navItem.href;
+              return (
+                <motion.div
+                  key={navItem.href}
+                  animate={{
+                    color: isActive 
+                      ? '#dc2626' 
+                      : (isHomepage || isCrewPage ? '#374151' : (isConnectPage ? '#ffffff' : (isInverted ? '#ffffff' : '#374151'))),
+                  }}
+                  whileHover={{
+                    color: '#dc2626',
+                  }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                >
+                  <Link 
+                    href={navItem.href} 
+                    className="block px-3 py-2 rounded-md text-base font-medium" 
+                    style={{ color: 'inherit' }}
+                  >
+                    {navItem.label}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </motion.div>
-        )}
+        </motion.div>
+      )}
       </AnimatePresence>
-    </motion.nav>
+      </nav>
+    </motion.div>
   );
 }

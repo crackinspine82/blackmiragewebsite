@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import AnimatedTitle from '@/components/AnimatedTitle';
 import dynamic from 'next/dynamic';
 import { PageTransition } from '@/components/PageTransition';
 import { videoItems } from '@/lib/videos';
+import { useTheme } from '@/contexts/ThemeContext';
 
 // Dynamically import the VideoSlider component with SSR disabled
 const VideoSlider = dynamic(() => import('@/components/VideoSlider').then(mod => mod.default), {
@@ -14,18 +15,40 @@ const VideoSlider = dynamic(() => import('@/components/VideoSlider').then(mod =>
 });
 
 export default function Home() {
+  const { setIsInverted } = useTheme();
+
+  // Reset theme to black (non-inverted) when on homepage
+  useEffect(() => {
+    setIsInverted(false);
+  }, [setIsInverted]);
+
   return (
     <PageTransition>
-      <main className="min-h-screen bg-white flex flex-col pt-20 overflow-x-hidden">
+      <motion.main 
+        className="min-h-screen bg-white flex flex-col pt-20 overflow-x-hidden"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      >
         <Navbar />
-        <div className="pt-32 pl-16 pr-8 pb-4">
+        <motion.div 
+          className="pt-32 pl-16 pr-8 pb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+        >
           <AnimatedTitle />
-        </div>
+        </motion.div>
         
-        <div className="flex-1 px-4 pb-4 mt-32 w-full overflow-x-hidden">
+        <motion.div 
+          className="flex-1 px-4 pb-4 mt-32 w-full overflow-x-hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        >
           <VideoSlider items={videoItems} />
-        </div>
-      </main>
+        </motion.div>
+      </motion.main>
     </PageTransition>
   );
 }

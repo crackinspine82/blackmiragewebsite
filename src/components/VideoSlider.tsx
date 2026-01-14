@@ -12,6 +12,12 @@ export interface VideoItem {
   ask?: string;
   delivered?: string;
   value?: string;
+  client?: string;
+  agency?: string;
+  strategicChallenge?: string;
+  solutionServices?: string;
+  execution?: string;
+  businessImpact?: string;
 }
 
 const VideoSlider = ({ items = [] }: { items?: VideoItem[] }) => {

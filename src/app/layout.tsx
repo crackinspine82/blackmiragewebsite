@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import ConditionalFooter from '@/components/ConditionalFooter';
+import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 import { Raleway, Roboto, Josefin_Sans } from 'next/font/google';
 
 const raleway = Raleway({
@@ -37,11 +38,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </head>
       <body className="min-h-screen flex flex-col bg-white">
-        <Navbar />
-        <main className="flex-1 w-full">
-          {children}
-        </main>
-        <ConditionalFooter />
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1 w-full">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

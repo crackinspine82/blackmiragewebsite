@@ -62,49 +62,106 @@ export default function CaseStudyOverlay({
             </button>
           </div>
 
-          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 mt-16">
-            <div className="lg:col-span-2">
-              <h2 className="text-4xl font-bold mb-8">{item.clientName}</h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Client</h3>
-                  <p>{item.clientName}</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Agency</h3>
-                  <p>Black Mirage</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Ask</h3>
-                  <p>{item.ask || 'To be defined'}</p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Delivered</h3>
-                  <p>{item.delivered || 'To be defined'}</p>
-                </div>
-                <div className="md:col-span-2">
-                  <h3 className="text-xl font-semibold mb-2">Value</h3>
-                  <p>{item.value || 'To be defined'}</p>
-                </div>
-              </div>
+          <div className="container mx-auto max-w-7xl mt-16">
+            <div className="mb-12">
+              <h1 className="text-5xl md:text-6xl font-black font-josefin text-black mb-4">{item.clientName}</h1>
+              <p className="text-xl text-gray-600">{item.serviceCategory}</p>
             </div>
 
-            <div className="lg:col-span-1">
-              <div className="sticky top-8">
-                {item.src.endsWith('.mp4') ? (
-                  <video 
-                    src={item.src} 
-                    controls 
-                    className="w-full h-auto rounded-lg"
-                  />
-                ) : (
-                  <img 
-                    src={item.src} 
-                    alt={item.clientName}
-                    className="w-full h-auto rounded-lg"
-                  />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <div className="lg:col-span-2 space-y-12">
+                {/* Client & Agency Info */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-gray-200">
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Client</h3>
+                    <p className="text-lg text-gray-900">{item.client || item.clientName}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Agency</h3>
+                    <p className="text-lg text-gray-900">{item.agency || 'Not Specified'}</p>
+                  </div>
+                </div>
+
+                {/* Strategic Challenge */}
+                {item.strategicChallenge && (
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">
+                      The Strategic Challenge
+                    </h2>
+                    <p className="text-lg text-gray-700 leading-relaxed">{item.strategicChallenge}</p>
+                  </div>
                 )}
+
+                {/* Solution & Services */}
+                {item.solutionServices && (
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">
+                      The Solution & Services Delivered
+                    </h2>
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Service Offerings</h3>
+                        <p className="text-lg text-gray-700 leading-relaxed">{item.solutionServices}</p>
+                      </div>
+                      {item.execution && (
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Execution</h3>
+                          <p className="text-lg text-gray-700 leading-relaxed">{item.execution}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Business Impact */}
+                {item.businessImpact && (
+                  <div className="pt-8 border-t border-gray-200">
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">
+                      Business Impact
+                    </h2>
+                    <p className="text-lg text-gray-700 leading-relaxed">{item.businessImpact}</p>
+                  </div>
+                )}
+
+                {/* Legacy fields for backward compatibility */}
+                {!item.strategicChallenge && item.ask && (
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">Ask</h2>
+                    <p className="text-lg text-gray-700 leading-relaxed">{item.ask}</p>
+                  </div>
+                )}
+                {!item.solutionServices && item.delivered && (
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">Delivered</h2>
+                    <p className="text-lg text-gray-700 leading-relaxed">{item.delivered}</p>
+                  </div>
+                )}
+                {!item.businessImpact && item.value && (
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-josefin text-black mb-4">Value</h2>
+                    <p className="text-lg text-gray-700 leading-relaxed">{item.value}</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Video/Media Sidebar */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-8">
+                  {item.src.endsWith('.mp4') ? (
+                    <video 
+                      src={item.src} 
+                      controls 
+                      className="w-full h-auto rounded-lg shadow-lg"
+                      playsInline
+                    />
+                  ) : (
+                    <img 
+                      src={item.src} 
+                      alt={item.clientName}
+                      className="w-full h-auto rounded-lg shadow-lg"
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
