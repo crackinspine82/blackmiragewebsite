@@ -48,7 +48,7 @@ export default function CrewPage() {
                     </p>
                     
                     <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light leading-relaxed">
-                      We started as an ITES & Media company, but we've grown into something much more personal: a dedicated partner for businesses ready to evolve.
+                      We are an Integrated Media & Technology services company, but we've grown into something much more personal: a dedicated partner for businesses ready to evolve.
                     </p>
                   </motion.div>
                 </div>
@@ -82,7 +82,7 @@ export default function CrewPage() {
                     </p>
                     
                     <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-light leading-relaxed">
-                      Whether we are coding a complex software solution, conducting deep-dive market research, or producing a film in our pinch harmonics studio, our goal is the same—to make you look good.
+                      Whether we are coding a complex software solution, conducting deep-dive market research, or producing a film, our goal is the same—to make you look good.
                     </p>
                   </motion.div>
                 </div>

@@ -378,12 +378,14 @@ export default function DigitalPage() {
                   key={button.id}
                   onClick={() => handleButtonClick(button.id)}
                   className={`w-full h-16 md:h-20 ${
-                    [
-                      activeButton === button.id ? 'bg-gray-600' : 'bg-gray-700 hover:bg-gray-600',
-                      activeButton === button.id ? 'bg-gray-700' : 'bg-gray-800 hover:bg-gray-700',
-                      activeButton === button.id ? 'bg-gray-800' : 'bg-gray-900 hover:bg-gray-800',
-                      activeButton === button.id ? 'bg-gray-900' : 'bg-black hover:bg-gray-900'
-                    ][button.id]
+                    activeButton === button.id
+                      ? 'bg-red-600 hover:bg-red-600'
+                      : [
+                          'bg-gray-700 hover:bg-gray-600',
+                          'bg-gray-800 hover:bg-gray-700',
+                          'bg-gray-900 hover:bg-gray-800',
+                          'bg-black hover:bg-gray-900',
+                        ][button.id]
                   } text-white flex items-center justify-center font-josefin font-bold text-sm sm:text-base md:text-lg transition-colors duration-200`}
                 >
                   {button.label}

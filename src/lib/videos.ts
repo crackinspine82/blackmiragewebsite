@@ -28,18 +28,6 @@ export const videoItems: VideoItem[] = [
     businessImpact: 'Accelerated Digital Adoption. The asset became the cornerstone of their internal training and external marketing. It effectively reduced resistance to change, ensuring faster onboarding of distributors onto the new digital platform.'
   },
   {
-    id: '2',
-    src: '/videos/gulf.mp4',
-    clientName: 'Gulf Oil',
-    serviceCategory: 'E-Learning',
-    client: 'Gulf Oil Lubricants India Ltd.',
-    agency: 'Goalseek Solutions Pvt Ltd.',
-    strategicChallenge: 'Gulf Oil identified a "Knowledge Gap" in their sales force regarding specific heavy industries (Cement, Steel, Mining). To move from transactional selling to Consultative Selling, they needed to equip their workforce with deep, sector-specific technical domain expertise.',
-    solutionServices: 'E-Learning Development (Articulate 360), Instructional Design, Custom Illustration',
-    execution: 'We developed the "Know Your Sector" academy—a series of SCORM-compliant Interactive Learning Modules. Leveraging instructional pedagogy, we broke down heavy industrial processes into digestible visual content, using custom animations to map lubrication touchpoints on complex machinery.',
-    businessImpact: 'Workforce Upskilling & Sales Enablement. The initiative successfully standardized technical knowledge across the organization. Sales teams were empowered to have value-driven conversations with industrial clients, directly aligning product solutions with operational pain points.'
-  },
-  {
     id: '3',
     src: '/videos/fabula.mp4',
     clientName: 'Fabula Coatings',
