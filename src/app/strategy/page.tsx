@@ -80,29 +80,25 @@ export default function StrategyPage() {
         title: 'Brand Strategy',
         description:
           'Develop comprehensive brand strategies that define your unique position, values, and promise to customers.',
-        image:
-          'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Brand-Strategy.jpg',
       },
       {
         title: 'Visual Identity',
         description:
           'Create distinctive visual identities that capture your brand essence and resonate with your audience.',
-        image:
-          'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Visual-Identity.jpg',
       },
       {
         title: 'Brand Messaging',
         description:
           'Craft compelling brand messages that communicate your story and connect with your audience across all touchpoints.',
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Brand-Messaging.jpg',
       },
       {
         title: 'Digital Brand Guidelines',
         description:
           'Establish comprehensive digital brand guidelines that ensure consistent application across all digital platforms and channels.',
-        image:
-          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Digital-Brand-Guidelines.jpg',
       },
     ],
     1: [
@@ -110,29 +106,25 @@ export default function StrategyPage() {
         title: 'Technology & Infrastructure Modernization',
         description:
           'Modernize your technology infrastructure to improve performance, scalability, and security while reducing operational costs.',
-        image:
-          'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Technology-&-Infrastructure-modernization.jpg',
       },
       {
         title: 'Customer Experience (CX) Transformation',
         description:
           'Transform how customers interact with your brand by redesigning touchpoints and creating seamless, personalized experiences.',
-        image:
-          'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Customer-Experience-(CX)-Transformation.jpg',
       },
       {
         title: 'Operational Optimization',
         description:
           'Streamline operations and workflows to increase efficiency, reduce waste, and improve overall business performance.',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Operational-Optimization.jpg',
       },
       {
         title: 'Data & Analytics Integration',
         description:
           'Leverage data and analytics to make informed decisions, predict trends, and drive measurable business outcomes.',
-        image:
-          'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Data-&-Analytics-Integration.jpg',
       },
     ],
     2: [
@@ -140,29 +132,25 @@ export default function StrategyPage() {
         title: 'Market Opportunity Analysis',
         description:
           'Identify and evaluate new market opportunities through comprehensive analysis of market size, trends, and potential.',
-        image:
-          'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Market-Opportunity-Analysis.jpg',
       },
       {
         title: 'Target Audience Profiling',
         description:
           'Develop detailed profiles of your target audiences in new markets to inform marketing and product strategies.',
-        image:
-          'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Target-Audience-Profiling.jpg',
       },
       {
         title: 'Competitive Landscape Mapping',
         description:
           'Map the competitive landscape in new markets to identify opportunities, threats, and positioning strategies.',
-        image:
-          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Competitive-Landscape-Mapping.jpg',
       },
       {
         title: 'Localized Go-to-Market Strategy',
         description:
           'Develop tailored go-to-market strategies that account for local market conditions, regulations, and cultural factors.',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Localized-Go-to-Market-Strategy.jpg',
       },
     ],
     3: [
@@ -170,29 +158,25 @@ export default function StrategyPage() {
         title: 'Audience & Platform Analysis',
         description:
           'Identify the right platforms and understand your audience to create targeted, effective social media strategies.',
-        image:
-          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Audience-&-Platform-Analysis.jpg',
       },
       {
         title: 'Content & Campaign Planning',
         description:
           'Develop comprehensive content strategies and campaign plans that align with your brand and drive engagement.',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Content-&-Campaign-Planning.jpg',
       },
       {
         title: 'Social Listening & Insights',
         description:
           'Monitor conversations, track sentiment, and gather insights to inform your social media strategy and decision-making.',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Social-Listening-&-Insights.jpg',
       },
       {
         title: 'Community Building',
         description:
           'Build and nurture online communities that foster brand loyalty, create authentic connections, and turn followers into advocates.',
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/strategy/Community-Building.jpg',
       },
     ],
   } as const;

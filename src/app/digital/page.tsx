@@ -116,110 +116,93 @@ export default function DigitalPage() {
       {
         title: 'Web Application Development',
         description: 'Custom web applications built with modern technologies to solve your business challenges. We create responsive, scalable, and secure web solutions tailored to your needs.',
-        image:
-          'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Web-Application-Development.jpg',
       },
       {
         title: 'Mobile App Development',
         description: 'Native and cross-platform mobile applications that deliver seamless user experiences across iOS and Android devices. We build apps that users love to engage with.',
-        image:
-          'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Mobile-App-Development.jpg',
       },
       {
         title: 'API & System Integration',
         description: 'Enterprise-grade API and system integration solutions that connect your applications and services. We ensure reliable, scalable, and secure communication between your systems.',
-        image:
-          'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/API-&-System-Integration.jpg',
       },
       {
         title: 'SaaS Product Development',
         description: 'End-to-end development of scalable and secure Software as a Service (SaaS) products. From concept to deployment, we help you build and grow your SaaS business.',
-        image:
-          'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/SaaS-Product-Development.jpg',
       },
     ],
     1: [
       {
         title: 'System & Application Integration',
         description: 'Integrate all your systems and applications into a unified, efficient ecosystem that eliminates data silos and streamlines operations.',
-        image:
-          'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/System-and-Application-Integration.jpg',
       },
       {
         title: 'API Management',
         description: 'Implement comprehensive API management solutions that secure, monitor, and optimize all your API interactions.',
-        image:
-          'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/API-Management.jpg',
       },
       {
         title: 'Data Orchestration',
         description: 'Orchestrate data flows across your systems to ensure consistent, timely, and accurate information exchange.',
-        image:
-          'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Data-Orchestration.jpg',
       },
       {
         title: 'Legacy System Modernization',
         description: 'Modernize and integrate legacy systems with modern applications, extending their lifespan while improving functionality.',
-        image:
-          'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Legacy-System-Modernization.jpg',
       },
     ],
     2: [
       {
         title: 'Custom E-Commerce Development',
         description: 'Build custom e-commerce platforms tailored to your business needs, from product catalogs to checkout and order management.',
-        image:
-          'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Custom-E-Commerce-Development.jpg',
       },
       {
         title: 'Platform Integration',
         description: 'Integrate your e-commerce platform with existing systems, third-party services, and business tools for seamless operations.',
-        image:
-          'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Platform-Integration.jpg',
       },
       {
         title: 'User Experience (UX) Design',
         description: 'Design intuitive and conversion-focused user experiences that guide customers smoothly from discovery to purchase.',
-        image:
-          'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/User-Experience-(UX)-Design.jpg',
       },
       {
         title: 'Payment & Security Solutions',
         description: 'Implement secure payment processing and robust security measures to protect customer data and build trust.',
-        image:
-          'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Payment-&-Security-Solutions.jpg',
       },
     ],
     3: [
       {
         title: 'Custom Learning Management Systems (LMS)',
         description: 'Build comprehensive learning management systems tailored to your organization\'s needs, delivering, tracking, and managing educational content effectively.',
-        image:
-          'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Custom-Learning-Management-System-(LMS).jpg',
       },
       {
         title: 'Interactive Course Development',
         description: 'Create engaging, interactive courses that combine multimedia content, assessments, and collaborative learning tools.',
-        image:
-          'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Interactive-Course-Development.jpg',
       },
       {
         title: 'Mobile Learning Solutions',
         description: 'Develop mobile-first learning solutions that enable learners to access content anytime, anywhere, on any device.',
-        image:
-          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Mobile-Learning-Solutions.jpg',
       },
       {
         title: 'Integration with Existing Systems',
         description: 'Integrate e-learning platforms with your existing HR, CRM, and business systems for seamless data flow and reporting.',
-        image:
-          'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Integration-with-Existing-Systems.jpg',
       },
       {
         title: 'Immersive Learning',
         description: 'Create immersive learning experiences using AR, VR, and gamification to enhance engagement and retention.',
-        image:
-          'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=400&q=80',
+        image: '/images/digital/Immersive-Learning.jpg',
       },
     ],
   };

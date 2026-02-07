@@ -81,29 +81,25 @@ export default function ResearchPage() {
         title: 'Competitive Analysis',
         description:
           "Analyze your competitors' strengths, weaknesses, and market positioning to help you identify untapped opportunities and build a smarter strategy.",
-        image:
-          'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Competitive Analysis.jpg',
       },
       {
         title: 'Audience Segmentation',
         description:
           'Define and understand your target audiences, allowing for more personalized and effective marketing campaigns.',
-        image:
-          'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Audience Segmentation.jpg',
       },
       {
         title: 'Trend Forecasting',
         description:
           "Use data-driven insights to help you stay ahead of market shifts and consumer trends, ensuring your business is always prepared for what's next.",
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Trend-Forecasting.jpg',
       },
       {
         title: 'Feasibility Studies',
         description:
           'Evaluate new business ideas and product launches to identify potential risks and opportunities, ensuring you make informed decisions.',
-        image:
-          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Feasibility Studies.jpg',
       },
     ],
     1: [
@@ -111,29 +107,25 @@ export default function ResearchPage() {
         title: 'User Interviews',
         description:
           'Conduct one-on-one sessions to uncover user goals, motivations, and pain points in their own words.',
-        image:
-          'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/User Interviews.jpg',
       },
       {
         title: 'Usability Testing',
         description:
           'Observe users as they interact with your product to identify what works and where improvements are needed.',
-        image:
-          'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Usability Testing.jpg',
       },
       {
         title: 'Journey Mapping',
         description:
           "Create visual representations of the user's journey to highlight key touchpoints, emotions, and opportunities for improvement.",
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Journey Mapping.jpg',
       },
       {
         title: 'Card Sorting & Tree Testing',
         description:
           'Test information architecture to ensure your content is logically organized and easy for users to find.',
-        image:
-          'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Card Sorting & Tree Testing.jpg',
       },
     ],
     2: [
@@ -141,29 +133,25 @@ export default function ResearchPage() {
         title: 'Online Communities',
         description:
           'We immerse ourselves in forums, groups, and platforms where your audience congregates to understand their conversations, concerns, and interests.',
-        image:
-          'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Online Communities.jpg',
       },
       {
         title: 'Social Media Behavior',
         description:
           'We analyze how users interact, share content, and express themselves on social media to uncover brand perceptions and trends.',
-        image:
-          'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Social Media Behaviors.jpg',
       },
       {
         title: 'Digital Rituals',
         description:
           'We identify the unique behaviors, language, and rituals that define your audience’s online culture.',
-        image:
-          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Digital Rituals.jpg',
       },
       {
         title: 'User-Generated Content',
         description:
           'We study how your brand is discussed and represented by users to gain authentic feedback and insights.',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/User Generated Content.jpg',
       },
     ],
     3: [
@@ -171,29 +159,25 @@ export default function ResearchPage() {
         title: 'Data Strategy & Measurement',
         description:
           'We help you define your key performance indicators (KPIs) and set up the right tools to measure what truly matters for your business.',
-        image:
-          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Data-strategy-and-measurements.jpg',
       },
       {
         title: 'Performance Analysis',
         description:
           "We analyze your digital campaigns, website traffic, and user behavior to identify what's working and where to improve your return on investment (ROI).",
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Performance-Analysis.jpg',
       },
       {
         title: 'Predictive Analytics',
         description:
           'We use historical data to forecast future trends and customer behavior, giving you a strategic advantage over the competition.',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Predictive-Analysis.jpg',
       },
       {
         title: 'Dashboarding & Reporting',
         description:
           'We create easy-to-understand dashboards and reports that put complex data into a clear, visual format, making insights accessible to everyone on your team.',
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/research/Dashboarding-&-Reporting.jpg',
       },
     ],
   } as const;

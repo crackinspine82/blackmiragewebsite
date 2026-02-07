@@ -3,7 +3,7 @@
 import { X } from 'lucide-react';
 import { VideoItem } from './VideoSlider';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useCallback } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 
 export default function CaseStudyOverlay({
   item,
@@ -14,11 +14,22 @@ export default function CaseStudyOverlay({
   onClose: () => void;
   origin?: { x: number; y: number; width: number; height: number };
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const handleClose = useCallback((e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setTimeout(() => onClose(), 200);
   }, [onClose]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !item.src.endsWith('.mp4')) return;
+    const play = () => video.play().catch(() => {});
+    if (video.readyState >= 2) play();
+    else video.addEventListener('loadeddata', play);
+    return () => video.removeEventListener('loadeddata', play);
+  }, [item.src]);
 
   return (
     <AnimatePresence>
@@ -70,16 +81,10 @@ export default function CaseStudyOverlay({
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-12">
-                {/* Client & Agency Info */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8 border-b border-gray-200">
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Client</h3>
-                    <p className="text-lg text-gray-900">{item.client || item.clientName}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Agency</h3>
-                    <p className="text-lg text-gray-900">{item.agency || 'Not Specified'}</p>
-                  </div>
+                {/* Agency Info */}
+                <div className="pb-8 border-b border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Agency</h3>
+                  <p className="text-lg text-gray-900">{item.agency || 'Not Specified'}</p>
                 </div>
 
                 {/* Strategic Challenge */}
@@ -149,10 +154,13 @@ export default function CaseStudyOverlay({
                 <div className="sticky top-8">
                   {item.src.endsWith('.mp4') ? (
                     <video 
+                      ref={videoRef}
                       src={item.src} 
                       controls 
                       className="w-full h-auto rounded-lg shadow-lg"
                       playsInline
+                      autoPlay
+                      muted
                     />
                   ) : (
                     <img 

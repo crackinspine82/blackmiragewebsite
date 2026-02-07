@@ -80,29 +80,25 @@ export default function DesignPage() {
         title: 'UX Audit & Strategy',
         description:
           'Comprehensive UX audits that identify opportunities for improvement and develop strategic roadmaps for enhancing user experiences.',
-        image:
-          'https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/UX-Audit-&-Strategy.jpg',
       },
       {
         title: 'Information Architecture',
         description:
           'Design clear and logical information structures that help users find what they need quickly and intuitively.',
-        image:
-          'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Information-Architecture.jpg',
       },
       {
         title: 'Wireframing & Prototyping',
         description:
           'Create wireframes and interactive prototypes that structure user flows and allow for early testing and refinement.',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Wireframing-&-Prototyping.jpg',
       },
       {
         title: 'Usability Testing',
         description:
           'Test designs with real users to identify improvements, validate solutions, and ensure your product meets user needs effectively.',
-        image:
-          'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Usability-Testing.jpg',
       },
     ],
     1: [
@@ -110,29 +106,25 @@ export default function DesignPage() {
         title: 'Custom Website Design',
         description:
           'Create unique, tailored website designs that reflect your brand and engage your audience effectively.',
-        image:
-          'https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Custom-Website-Design.jpg',
       },
       {
         title: 'Mobile App UI/UX',
         description:
           'Design intuitive and beautiful mobile app interfaces that provide exceptional user experiences across iOS and Android.',
-        image:
-          'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Mobile-App-UI-UX.jpg',
       },
       {
         title: 'Responsive Design',
         description:
           'Ensure your website looks and functions perfectly across all devices, from mobile phones to desktop computers.',
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Responsive-Design.jpg',
       },
       {
         title: 'Website Redesign',
         description:
           'Transform your existing website with a modern redesign that improves user experience and reflects your brand evolution.',
-        image:
-          'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Website-Redesign.jpg',
       },
     ],
     2: [
@@ -140,29 +132,25 @@ export default function DesignPage() {
         title: 'Brand Identity & Style Guide',
         description:
           'Create comprehensive brand identities and style guides that define your visual language and ensure consistent application across all touchpoints.',
-        image:
-          'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Brand-Identity-&-Style-Guide.jpg',
       },
       {
         title: 'UI (User Interface) Design',
         description:
           'Design intuitive and visually appealing user interfaces that enhance usability and create engaging digital experiences.',
-        image:
-          'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/UI-(User-Interface)-Design.jpg',
       },
       {
         title: 'Illustration & Iconography',
         description:
           'Create custom illustrations and iconography that add personality, clarity, and visual interest to your digital products.',
-        image:
-          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Illustration-&-Iconography.jpg',
       },
       {
         title: 'Marketing Collateral',
         description:
           'Design marketing materials and collateral that effectively communicate your brand message and drive engagement.',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Marketing-Collateral.jpg',
       },
     ],
     3: [
@@ -170,29 +158,25 @@ export default function DesignPage() {
         title: 'Low-Fidelity Prototyping',
         description:
           'Create quick, simple prototypes to test core concepts and user flows early in the design process.',
-        image:
-          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Low-Fidelity-Prototyping.jpg',
       },
       {
         title: 'High-Fidelity Prototyping',
         description:
           'Build detailed, interactive prototypes that closely resemble the final product for comprehensive testing and stakeholder approval.',
-        image:
-          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/High-Fidelity-Prototyping.jpg',
       },
       {
         title: 'Interactive Demo',
         description:
           'Create engaging interactive demos that showcase your product\'s functionality and user experience to stakeholders and investors.',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Interactive-Demo.jpg',
       },
       {
         title: 'Usability Testing Integration',
         description:
           'Integrate usability testing into the prototyping process to gather user feedback and validate design decisions early.',
-        image:
-          'https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=400&q=80',
+        image: '/images/design/Usability-Testing-Integration.jpg',
       },
     ],
   } as const;
