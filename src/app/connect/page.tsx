@@ -8,11 +8,32 @@ import Navbar from '@/components/Navbar';
 export default function ConnectPage() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', { email, message });
+    setStatus('sending');
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        return;
+      }
+      setStatus('success');
+      setEmail('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+      setErrorMessage('Failed to send. Please try again.');
+    }
   };
 
   return (
@@ -69,11 +90,18 @@ export default function ConnectPage() {
                     />
                   </div>
                   
+                  {status === 'success' && (
+                    <p className="text-green-400 text-sm">Message sent. We&apos;ll get back to you soon.</p>
+                  )}
+                  {status === 'error' && (
+                    <p className="text-red-400 text-sm">{errorMessage}</p>
+                  )}
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+                    disabled={status === 'sending'}
+                    className="w-full px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {status === 'sending' ? 'Sending...' : 'Send Message'}
                   </button>
                 </motion.form>
               </div>

@@ -1,10 +1,39 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+    setErrorMessage('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        return;
+      }
+      setStatus('success');
+      setEmail('');
+      setMessage('');
+    } catch {
+      setStatus('error');
+      setErrorMessage('Failed to send. Please try again.');
+    }
+  };
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end end']
@@ -75,33 +104,44 @@ export default function Footer() {
 
                 {/* Right Column - Form */}
                 <div className="w-full md:w-1/2 flex items-center">
-                  <form className="space-y-3 md:space-y-4 w-full">
+                  <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 w-full">
                     <div>
-                      <label htmlFor="email" className="block text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-1.5">
+                      <label htmlFor="footer-email" className="block text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-1.5">
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
-                        id="email"
+                        id="footer-email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors text-lg sm:text-xl md:text-2xl font-light"
                         placeholder="your.email@example.com"
                         required
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-1.5">
+                      <label htmlFor="footer-message" className="block text-lg sm:text-xl md:text-2xl font-light text-gray-300 mb-1.5">
                         Message <span className="text-gray-500 text-base sm:text-lg md:text-xl">(Optional)</span>
                       </label>
                       <textarea
-                        id="message"
+                        id="footer-message"
                         rows={4}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         className="w-full px-3 py-2 md:px-4 md:py-2.5 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors resize-none text-lg sm:text-xl md:text-2xl font-light"
                         placeholder="Tell us about your project or just say hello..."
-                      ></textarea>
+                      />
                     </div>
+                    {status === 'success' && (
+                      <p className="text-green-400 text-sm">Message sent. We&apos;ll get back to you soon.</p>
+                    )}
+                    {status === 'error' && (
+                      <p className="text-red-400 text-sm">{errorMessage}</p>
+                    )}
                     <div className="pt-2">
                       <motion.button
                         type="submit"
+                        disabled={status === 'sending'}
                         className="w-full px-6 py-2.5 md:px-8 md:py-3 bg-white text-black font-light text-lg sm:text-xl md:text-2xl font-josefin disabled:opacity-50 disabled:cursor-not-allowed"
                         initial={{ backgroundColor: '#ffffff', color: '#000000' }}
                         whileHover={{ 
@@ -117,7 +157,7 @@ export default function Footer() {
                           ease: 'easeInOut' 
                         }}
                       >
-                        Send Message
+                        {status === 'sending' ? 'Sending...' : 'Send Message'}
                       </motion.button>
                     </div>
                   </form>
