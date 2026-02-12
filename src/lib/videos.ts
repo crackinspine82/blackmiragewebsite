@@ -16,16 +16,15 @@ export interface VideoItem {
 
 export const videoItems: VideoItem[] = [
   {
-    id: '1',
-    src: '/videos/castrol.mp4',
-    clientName: 'Castrol',
-    serviceCategory: 'Audio-Visual',
-    client: 'Castrol India Ltd. (Lubricants Leader)',
+    id: '2',
+    src: '/videos/gulf.mp4',
+    clientName: 'Gulf Oil',
+    serviceCategory: 'E-Learning',
     agency: 'Goalseek Solutions Pvt Ltd.',
-    strategicChallenge: 'Castrol was launching a disruptive, subscription-based B2B tool to digitize distributor operations. The challenge was Change Management: How to communicate a complex, intangible SaaS (Software as a Service) value proposition to a non-technical audience of traditional distributors without friction?',
-    solutionServices: '2D Animation & Motion Graphics, Scriptwriting & Storyboarding, Creative Strategy',
-    execution: 'We utilized Visual Storytelling to simplify complexity. We produced a high-fidelity 2D Explainer Video that deconstructed the technical workflow into a relatable narrative. By combining clear metaphorical visuals with a persuasive script, we highlighted the transition from manual errors to automated productivity.',
-    businessImpact: 'Accelerated Digital Adoption. The asset became the cornerstone of their internal training and external marketing. It effectively reduced resistance to change, ensuring faster onboarding of distributors onto the new digital platform.'
+    strategicChallenge: 'With a focus on strengthening their team\'s understanding of sector-specific operations, Gulf Oil sought to develop a digital training module under the theme "Know Your Sector" to build domain knowledge and better align their solutions with customer needs. Challenges: To design and develop interactive, engaging, and informative e-learning modules tailored to Gulf Oil\'s sales and technical teams, focused on Sector overview and market size, Challenges faced in each sector and lubrication needs, Gulf Oil\'s product relevance and application in each industry, simplifying complex industrial processes for a non-technical audience, and ensuring visual and instructional consistency across diverse sectors.',
+    solutionServices: 'Instructional Design, Visual Design & Animation, Development on Articulate 360, Voiceover & Audio Sync, Assessments',
+    execution: 'Designed clear learning objectives and flow for each sector. Scripted storyboard with scenarios, infographics, and knowledge checks. Developed custom icons, illustrations, and process diagrams specific to each industry. Designed a unified visual style using Gulf Oil branding elements. Created industry-relevant animations to illustrate heavy machinery, lubrication points, etc. Built multiple modules using Articulate Storyline 360 for interactivity. Professionally recorded and edited voiceovers for narration in English. Synced audio with animations and transitions for a seamless experience. Created end-of-module quizzes with randomized questions.',
+    businessImpact: 'By leveraging Articulate 360\'s versatile platform and applying instructional design best practices, we successfully delivered a high-quality digital learning experience for Gulf Oil India. The "Know Your Sector" e-learning series is now a key part of their sales enablement and on-boarding programs, driving product alignment and customer engagement across core industries.'
   },
   {
     id: '3',
