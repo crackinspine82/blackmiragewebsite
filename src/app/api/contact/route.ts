@@ -1,22 +1,18 @@
 import { NextResponse } from 'next/server';
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
 
 const CONTACT_TO = 'aniket@blackmirage.in';
 
 export async function POST(request: Request) {
   try {
-    const apiKey = process.env.SENDGRID_API_KEY;
-    const from = process.env.SENDGRID_FROM;
+    const host = process.env.SMTP_HOST;
+    const port = process.env.SMTP_PORT;
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASS;
+    const from = process.env.SMTP_FROM || user;
 
-    if (!apiKey) {
-      console.error('SENDGRID_API_KEY is not set');
-      return NextResponse.json(
-        { error: 'Email service is not configured' },
-        { status: 500 }
-      );
-    }
-    if (!from) {
-      console.error('SENDGRID_FROM is not set (verified sender email for SendGrid)');
+    if (!host || !port || !user || !pass) {
+      console.error('SMTP not configured: set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS');
       return NextResponse.json(
         { error: 'Email service is not configured' },
         { status: 500 }
@@ -34,15 +30,20 @@ export async function POST(request: Request) {
       );
     }
 
-    sgMail.setApiKey(apiKey);
+    const transporter = nodemailer.createTransport({
+      host,
+      port: Number(port),
+      secure: port === '465',
+      auth: { user, pass },
+    });
 
     const text = message
       ? `From: ${email}\n\nMessage:\n${message}`
       : `Contact form submission from: ${email}\n(No message provided)`;
 
-    await sgMail.send({
+    await transporter.sendMail({
+      from: from || user,
       to: CONTACT_TO,
-      from,
       subject: `Black Mirage contact from ${email}`,
       text,
       html: `
