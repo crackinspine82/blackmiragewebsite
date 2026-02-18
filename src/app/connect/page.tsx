@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
-import Navbar from '@/components/Navbar';
 
 export default function ConnectPage() {
   const [email, setEmail] = useState('');
@@ -39,7 +38,6 @@ export default function ConnectPage() {
   return (
     <PageTransition>
       <main className="min-h-screen bg-black text-white flex flex-col pt-20">
-        <Navbar />
         <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-16 md:py-24">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
@@ -172,7 +170,7 @@ export default function ConnectPage() {
                   className="w-full h-96 rounded-lg overflow-hidden"
                 >
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.1234567890123!2d72.85678901234567!3d19.02345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAxJzI0LjQiTiA3MsKwNTEnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.837102185149!2d72.83891877580548!3d19.02689845351103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced1b35ee90f%3A0x2899092807c558b7!2sSakharam%20Keer%20Marg%2C%20Kasaravadi%2C%20Dadar%2C%20Mumbai%2C%20Maharashtra%20400016!5e0!3m2!1sen!2sin!4v1771388835435!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

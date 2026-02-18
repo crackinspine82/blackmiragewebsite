@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
 import { CollapsibleItem } from '@/components/CollapsibleItem';
@@ -46,8 +46,19 @@ export default function StrategyPage() {
 
   const [activeButton, setActiveButton] = useState(0);
   const [openItem, setOpenItem] = useState<number | null>(null);
+  const [openMobileItem, setOpenMobileItem] = useState<{ section: number; index: number } | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { isInverted, setIsInverted } = useTheme();
   const theme = isInverted ? 'dark' : 'light';
+  const effectiveInverted = isMobile ? false : isInverted;
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = () => setIsMobile(mq.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const buttons = [
     { id: 0, label: 'BRANDING' },
@@ -191,13 +202,54 @@ export default function StrategyPage() {
         <motion.div
           className="min-h-screen"
           animate={{
-            backgroundColor: isInverted ? '#000000' : '#ffffff',
-            color: isInverted ? '#ffffff' : '#000000',
+            backgroundColor: effectiveInverted ? '#000000' : '#ffffff',
+            color: effectiveInverted ? '#ffffff' : '#000000',
           }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
-          <main className="min-h-screen snap-start flex flex-col">
-          <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-4">
+          <main className="min-h-screen snap-start flex flex-col pt-20 md:pt-24">
+          {/* Mobile: stacked sections, single theme */}
+          <div className="md:hidden px-4 sm:px-8 py-6 space-y-12">
+            {buttons.map((button, sectionIndex) => {
+              const content = contentMap[sectionIndex];
+              const collapsibles = collapsibleContent[sectionIndex as keyof typeof collapsibleContent] ?? collapsibleContent[0];
+              const sectionTitle = rightColumnTitles[sectionIndex] ?? 'Strategy Services';
+              return (
+                <section key={button.id} className="space-y-6">
+                  <h2 className="text-2xl font-black font-josefin text-black tracking-tight border-b border-gray-200 pb-2">
+                    {button.label}
+                  </h2>
+                  <h3 className="text-3xl font-black font-josefin text-black">
+                    {content?.title || '\u00A0'}
+                  </h3>
+                  <p className="text-lg font-light text-gray-600">{content?.subtitle || '\u00A0'}</p>
+                  {content?.description && (
+                    <p className="text-lg font-light text-gray-600 leading-relaxed">{content.description}</p>
+                  )}
+                  <h4 className="text-lg font-light text-gray-700 pt-2">{sectionTitle}</h4>
+                  <div className="space-y-0">
+                    {collapsibles.map((item, index) => (
+                      <CollapsibleItem
+                        key={item.title}
+                        title={item.title}
+                        description={item.description}
+                        isLast={index === collapsibles.length - 1}
+                        isOpen={openMobileItem?.section === sectionIndex && openMobileItem?.index === index}
+                        onToggle={() => setOpenMobileItem((prev) =>
+                          prev?.section === sectionIndex && prev?.index === index ? null : { section: sectionIndex, index }
+                        )}
+                        imageSrc={item.image}
+                        theme="light"
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+
+          {/* Desktop: single view with swapping content */}
+          <div className="hidden md:flex flex-1 flex-col justify-center px-4 sm:px-8 py-4">
             <div className="flex flex-col md:flex-row mb-4 md:mb-12 px-4 sm:px-8 gap-8">
               {/* Left Column - Content */}
               <div className="md:w-1/2 space-y-6 flex flex-col justify-center">
@@ -217,7 +269,7 @@ export default function StrategyPage() {
                       exit={{ opacity: 0, x: 40 }}
                       transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
                       className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black font-josefin tracking-normal ${
-                        isInverted ? 'text-white' : 'text-black'
+                        effectiveInverted ? 'text-white' : 'text-black'
                       }`}
                     >
                       {currentContent.title || '\u00A0'}
@@ -231,7 +283,7 @@ export default function StrategyPage() {
                         exit={{ opacity: 0, x: 40 }}
                         transition={{ duration: 0.7, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
                         className={`text-lg sm:text-xl md:text-2xl font-light ${
-                          isInverted ? 'text-gray-300' : 'text-gray-600'
+                          effectiveInverted ? 'text-gray-300' : 'text-gray-600'
                         }`}
                       >
                         {currentContent.subtitle || '\u00A0'}
@@ -248,7 +300,7 @@ export default function StrategyPage() {
                         >
                           <p
                             className={`text-lg sm:text-xl md:text-2xl font-light leading-relaxed ${
-                              isInverted ? 'text-gray-300' : 'text-gray-600'
+                              effectiveInverted ? 'text-gray-300' : 'text-gray-600'
                             }`}
                           >
                             {currentContent.description}
@@ -298,7 +350,7 @@ export default function StrategyPage() {
                     >
                       <h2
                         className={`text-lg sm:text-xl md:text-2xl font-light text-right ${
-                          isInverted ? 'text-gray-200' : 'text-gray-700'
+                          effectiveInverted ? 'text-gray-200' : 'text-gray-700'
                         }`}
                       >
                         {rightColumnTitles[activeButton] ?? 'Strategy Services'}
@@ -322,9 +374,9 @@ export default function StrategyPage() {
             </div>
           </div>
 
-          {/* Service Buttons - Affixed to bottom of first section */}
+          {/* Service Buttons - Desktop only */}
           <motion.div 
-            className="w-full mt-auto"
+            className="hidden md:block w-full mt-auto"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ 

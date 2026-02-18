@@ -216,6 +216,7 @@ export default function Navbar() {
                     href={navItem.href} 
                     className="block px-3 py-2 rounded-md text-base font-medium" 
                     style={{ color: 'inherit' }}
+                    onClick={closeMenu}
                   >
                     {navItem.label}
                   </Link>

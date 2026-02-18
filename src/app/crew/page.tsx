@@ -2,13 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
-import Navbar from '@/components/Navbar';
 
 export default function CrewPage() {
   return (
     <PageTransition>
       <main className="min-h-screen bg-white pt-20 md:pt-24">
-        <Navbar />
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-16 lg:px-24">
           {/* The Story Section */}
           <section className="flex items-center justify-center py-8 md:py-12">
