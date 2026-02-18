@@ -1,6 +1,6 @@
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import ConditionalFooter from '@/components/ConditionalFooter';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { Raleway, Roboto, Josefin_Sans } from 'next/font/google';
 
@@ -43,7 +43,7 @@ export default function RootLayout({
           <main className="flex-1 w-full">
             {children}
           </main>
-          <Footer />
+          <ConditionalFooter />
         </ThemeProvider>
       </body>
     </html>
