@@ -26,20 +26,20 @@ export default function Navbar() {
   const { isInverted, setIsInverted } = useTheme();
   const pathname = usePathname();
   
-  // Always use black text on homepage and crew page, white text on connect page, regardless of theme state
+  // Always use black text on homepage and about-us page, white text on connect page, regardless of theme state
   const isHomepage = pathname === '/';
   const isConnectPage = pathname === '/connect';
-  const isCrewPage = pathname === '/crew';
-  const shouldUseBlackText = isHomepage || isCrewPage ? true : (isConnectPage ? false : !isInverted);
+  const isAboutUsPage = pathname === '/about-us';
+  const shouldUseBlackText = isHomepage || isAboutUsPage ? true : (isConnectPage ? false : !isInverted);
   
-  // Reset theme immediately when navigating to homepage, crew page, or connect page
+  // Reset theme immediately when navigating to homepage, about-us page, or connect page
   useEffect(() => {
-    if (isHomepage || isCrewPage) {
+    if (isHomepage || isAboutUsPage) {
       setIsInverted(false);
     } else if (isConnectPage) {
       setIsInverted(true);
     }
-  }, [isHomepage, isCrewPage, isConnectPage, setIsInverted]);
+  }, [isHomepage, isAboutUsPage, isConnectPage, setIsInverted]);
   
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -112,7 +112,7 @@ export default function Navbar() {
               { href: '/design', label: 'Design' },
               { href: '/digital', label: 'Digital' },
               { href: '/audio-visual', label: 'Audio-Visual' },
-              { href: '/crew', label: 'Crew' },
+              { href: '/about-us', label: 'About Us' },
               { href: '/connect', label: 'Connect' },
             ].map((navItem) => {
               const isActive = pathname === navItem.href;
@@ -185,7 +185,7 @@ export default function Navbar() {
           <motion.div 
             className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-sm shadow-lg"
             animate={{
-              backgroundColor: isHomepage || isCrewPage ? 'rgba(255, 255, 255, 0.95)' : (isConnectPage ? 'rgba(0, 0, 0, 0.95)' : (isInverted ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)')),
+              backgroundColor: isHomepage || isAboutUsPage ? 'rgba(255, 255, 255, 0.95)' : (isConnectPage ? 'rgba(0, 0, 0, 0.95)' : (isInverted ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)')),
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
           >
@@ -195,7 +195,7 @@ export default function Navbar() {
               { href: '/design', label: 'Design' },
               { href: '/digital', label: 'Digital' },
               { href: '/audio-visual', label: 'Audio-Visual' },
-              { href: '/crew', label: 'Crew' },
+              { href: '/about-us', label: 'About Us' },
               { href: '/connect', label: 'Connect' },
             ].map((navItem) => {
               const isActive = pathname === navItem.href;
@@ -205,7 +205,7 @@ export default function Navbar() {
                   animate={{
                     color: isActive 
                       ? '#dc2626' 
-                      : (isHomepage || isCrewPage ? '#374151' : (isConnectPage ? '#ffffff' : (isInverted ? '#ffffff' : '#374151'))),
+                      : (isHomepage || isAboutUsPage ? '#374151' : (isConnectPage ? '#ffffff' : (isInverted ? '#ffffff' : '#374151'))),
                   }}
                   whileHover={{
                     color: '#dc2626',

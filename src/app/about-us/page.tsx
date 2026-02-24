@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/PageTransition';
 
-export default function CrewPage() {
+export default function AboutUsPage() {
   return (
     <PageTransition>
       <main className="min-h-screen bg-white pt-20 md:pt-24">
@@ -119,4 +119,3 @@ export default function CrewPage() {
     </PageTransition>
   );
 }
-

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Phone, Mail } from 'lucide-react';
 import { PageTransition } from '@/components/PageTransition';
 
 export default function ConnectPage() {
@@ -40,9 +41,9 @@ export default function ConnectPage() {
       <main className="min-h-screen bg-black text-white flex flex-col pt-20">
         <div className="flex-1 flex flex-col justify-center px-4 sm:px-8 py-16 md:py-24">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
-              {/* Left Column - Contact Form */}
-              <div className="md:col-span-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+              {/* Left Column - Title and Contact Form */}
+              <div>
                 <motion.h2
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -104,80 +105,58 @@ export default function ConnectPage() {
                 </motion.form>
               </div>
 
-              {/* Middle Column - Contact Information */}
-              <div className="md:col-span-1">
+              {/* Right Column - Get In Touch, Phone, Email, Map */}
+              <div className="flex flex-col space-y-8">
                 <motion.h2
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-4xl sm:text-5xl md:text-6xl font-black text-white font-josefin tracking-normal mb-8"
+                  className="text-4xl sm:text-5xl md:text-6xl font-black text-white font-josefin tracking-normal"
                 >
                   Get In Touch
                 </motion.h2>
                 
                 <motion.div
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="space-y-8"
-                >
-                  <div>
-                    <p className="text-gray-300 leading-relaxed mb-4">
-                      Sakharam Keer Marg<br />
-                      Kasaravadi, Matunga West<br />
-                      Mumbai - 400016<br />
-                      Maharashtra, India
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-3">Phone</h3>
-                    <a 
-                      href="tel:+919967153207" 
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      +91 9967 153 207
-                    </a>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-3">Email</h3>
-                    <a 
-                      href="mailto:aniket@blackmirage.org" 
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      aniket@blackmirage.org
-                    </a>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Right Column - Map */}
-              <div className="md:col-span-1">
-                <motion.h2
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.7, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                  className="text-4xl sm:text-5xl md:text-6xl font-black text-white font-josefin tracking-normal mb-8"
+                  className="flex flex-col gap-6"
                 >
-                  Find Us
-                </motion.h2>
+                  <a
+                    href="tel:+919967153207"
+                    className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group"
+                  >
+                    <span className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-gray-700 transition-colors">
+                      <Phone className="w-5 h-5" strokeWidth={1.5} />
+                    </span>
+                    <span className="text-lg">+91 9967 153 207</span>
+                  </a>
+                  <a
+                    href="mailto:aniket@blackmirage.in"
+                    className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group"
+                  >
+                    <span className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-gray-700 transition-colors">
+                      <Mail className="w-5 h-5" strokeWidth={1.5} />
+                    </span>
+                    <span className="text-lg">aniket@blackmirage.in</span>
+                  </a>
+                </motion.div>
                 
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.7, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                  className="w-full h-96 rounded-lg overflow-hidden"
+                  transition={{ duration: 0.7, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="w-full flex-1 min-h-[280px] md:min-h-[320px] rounded-lg overflow-hidden"
                 >
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.837102185149!2d72.83891877580548!3d19.02689845351103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced1b35ee90f%3A0x2899092807c558b7!2sSakharam%20Keer%20Marg%2C%20Kasaravadi%2C%20Dadar%2C%20Mumbai%2C%20Maharashtra%20400016!5e0!3m2!1sen!2sin!4v1771388835435!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
-                    style={{ border: 0 }}
+                    style={{ border: 0, minHeight: '280px' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full"
+                    className="w-full h-full min-h-[280px]"
                   />
                 </motion.div>
               </div>
